@@ -1,0 +1,62 @@
+{
+ "signatures": [
+  {
+   "keyid": "19cb24080829697743595f170c10296c36b461c33de3a3b475f69f8f842225c2",
+   "sig": "4d2b39c727e5239bb907a184bb08db6b381db856c157e5e91034b502810a1b639b0e853bb3158d3e36c96ef6500234d07767148e516c814c5d878f49e8a29608"
+  },
+  {
+   "keyid": "d55d4d06e67485e6012ec3b40ce214da1fb3ec34490b389159693b0a4eaaeebe",
+   "sig": "292a993f1096ab124f90a7a4dcd222b83eb5ff0b8f1918c479a8aa75b9183ca6730c87fa46c9445f0521ca632b5a5f960e0061ca92ee9a2f4bfdd01b0f09720d"
+  }
+ ],
+ "signed": {
+  "_type": "targets",
+  "expires": "2027-02-06T20:23:21Z",
+  "spec_version": "1.0.31",
+  "targets": {
+   "game-1.1.1.zip": {
+    "hashes": {
+     "sha256": "56ab0e10cccda1e83ceed04a38b588762da965ec3b059b51a20434761c544e01"
+    },
+    "length": 4678
+   },
+   "game-1.1.1.zip.intoto.jsonl": {
+    "hashes": {
+     "sha256": "ba1d5fccaa7fb8b88d3b8b52ccceaef0b1db4da8e3d074072575f20e4474bcbe"
+    },
+    "length": 21731
+   },
+   "game-1.1.1.zip.sigstore.json": {
+    "hashes": {
+     "sha256": "b7e01cf6b318a92004deaf74c0f7be6583cc656c8287ec5080c02a6fcb007b15"
+    },
+    "length": 10491
+   },
+   "game-1.1.2.zip": {
+    "hashes": {
+     "sha256": "4b676777735ca385d3c42c52bb5356c8bb73df0cd7baad9a22e44e24f7b0c385"
+    },
+    "length": 4678
+   },
+   "game-1.1.2.zip.intoto.jsonl": {
+    "hashes": {
+     "sha256": "d64f93351376e9a4758debe6829c03ed31d2de5c2add525acc62cdf64fbfea86"
+    },
+    "length": 21759
+   },
+   "game-1.1.2.zip.sigstore.json": {
+    "hashes": {
+     "sha256": "efc967336a560b8532962ac353f37b1b2a39c0e00370f6a45603df013c28edea"
+    },
+    "length": 10639
+   },
+   "latest.json": {
+    "hashes": {
+     "sha256": "7c2c097f8d4ccb315fa028b9da7abec8e9f319e702b97bcf5d09ba75bb85ba28"
+    },
+    "length": 140
+   }
+  },
+  "version": 6
+ }
+}
