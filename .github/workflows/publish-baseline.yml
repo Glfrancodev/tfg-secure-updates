@@ -1,0 +1,57 @@
+name: publish-baseline
+
+# Canal sin parchar: compila y publica, sin escaneo ni firma (equivale a SteamPipe).
+on:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: write
+
+concurrency:
+  group: gh-pages
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - uses: ./.github/actions/build-game
+
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: gh-pages
+          path: pages
+          fetch-depth: 0
+
+      - name: Publicar en gh-pages/baseline
+        shell: bash
+        run: |
+          version="$(cat game/VERSION)"
+          zip="game-${version}.zip"
+          sha256="$(sha256sum "dist/${zip}" | cut -d' ' -f1)"
+
+          mkdir -p pages/baseline/files
+          cp "dist/${zip}" "pages/baseline/files/${zip}"
+          printf '{ "version": "%s", "file": "files/%s", "sha256": "%s" }\n' \
+            "$version" "$zip" "$sha256" > pages/baseline/latest.json
+
+          cd pages
+          git rm -q --ignore-unmatch baseline/.gitkeep
+          git add baseline
+          if git diff --cached --quiet; then
+            echo "Sin cambios: v${version} ya estaba publicada con el mismo contenido."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -q -m "baseline: publica v${version} (${GITHUB_REF_NAME})"
+          git pull -q --rebase origin gh-pages
+          git push -q origin HEAD:gh-pages
+
+          echo "### Baseline: v${version} publicada" >> "$GITHUB_STEP_SUMMARY"
+          echo "\`files/${zip}\` sha256 \`${sha256}\`" >> "$GITHUB_STEP_SUMMARY"

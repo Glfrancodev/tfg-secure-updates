@@ -34,8 +34,8 @@ Se completa en las fases 1, 2 y 4, verificando cada versión contra su documenta
 |---|---|---|
 | `actions/setup-python` (en `.github/actions/build-game`) | `6d4fd22b20465ccc0f7354476588e8df7c9ca0e0` (v7.1.0) | 1 |
 | Python en el *runner* | 3.12.10 (`python-3.12.10-linux-24.04-x64` de `actions/python-versions`), la misma versión que en la PC | 1 |
-| Imagen del *runner* | pendiente | 2 |
-| `actions/checkout` | pendiente (SHA) | 2 |
+| Imagen del *runner* | `ubuntu-24.04` (fija, no `ubuntu-latest`) | 2 |
+| `actions/checkout` | `3d3c42e5aac5ba805825da76410c181273ba90b1` (v7.0.1) | 2 |
 | `actions/upload-artifact` / `actions/download-artifact` | pendiente (SHA) | 4 |
 | `sigstore/cosign-installer` (debe instalar cosign v3.1.4, igual que el cliente) | pendiente (SHA) | 4 |
 | `slsa-framework/slsa-github-generator` → `generator_generic_slsa3.yml` | pendiente (*tag*) | 4 |
