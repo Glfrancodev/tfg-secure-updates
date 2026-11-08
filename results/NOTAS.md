@@ -27,3 +27,18 @@
 - **GitHub Pages quedó activado solo**: al subir la rama `gh-pages`, GitHub activó Pages y ejecuta `pages-build-deployment` en cada push a esa rama. El canal también queda público en `https://glfrancodev.github.io/tfg-secure-updates/`, lo que el plan deja como opcional. Las demos usan el *mirror* local igual. `scripts/pipeline_times.py` (Fase 7) debe ignorar esas ejecuciones.
 - **Criterio H0 baseline cumplido** con los *tags* reales `v1.0.0` y `v1.1.0`. Evidencia en `docs/evidence/H0/baseline.md`. Los hashes publicados por CI coinciden con los del empaquetado local.
 - **Pruebas locales** (antes de publicar los *tags*): se ejecutó el script real del paso de publicación de `publish-baseline.yml` en Git Bash contra una copia de `gh-pages` (con el push simulado) y una prueba de punta a punta del launcher contra un *mirror* de prueba: instala 1.0.0, actualiza a 1.1.0, rechaza un zip alterado sin recalcular el hash y detecta un marcador `PWNED_*`.
+
+## Fase 3 — Repositorio TUF
+
+- **Basado en los ejemplos oficiales de python-tuf v7.0.1** (`examples/manual_repo/basic_repo.py`, `examples/repository/_simplerepo.py` y `examples/client/client`). Como en ellos, se usan *consistent snapshots* para los metadatos: `N.root.json`, `N.targets.json`, `N.snapshot.json` y `timestamp.json`. Los *targets* van **sin prefijo de hash** (`targets/game-X.Y.Z.zip`), porque sus nombres ya llevan la versión. El cliente usa la opción oficial `UpdaterConfig(prefix_targets_with_hash=False)`. Así los ataques I1 y C1, y la descarga directa del modo auditoría, usan nombres legibles.
+- **Claves por variable de entorno**: el esqueleto del plan pasa la clave como argumento (`--key $TUF_TARGETS_CI_KEY`). Los argumentos de un proceso se pueden ver en listados de procesos y *logs*, así que `--key` recibe el **nombre** de la clave (`targets-ci`, `targets-dev`, `online`, `root`). El contenido se lee de la variable `TUF_<NOMBRE>_KEY` (los *secrets* de GitHub Actions) o, en local, de `keys/<nombre>.pem`.
+- **`update-snapshot-timestamp` se niega a publicar** si targets no alcanza el umbral 2, igual que `close()` del ejemplo oficial, que solo escribe metadatos verificados. Esto no cambia el escenario C1: el atacante no está obligado a usar nuestra herramienta. `run.py` llamará a la función con `require_verified_targets=False`, equivalente a usar `python-tuf` directamente.
+- **`refresh-timestamp` renueva también snapshot**, sin cambiar los *targets* publicados. Los dos vencen a los 30 días: renovar solo el timestamp dejaría un snapshot vencido y el cliente fallaría igual. Avisa si root o targets vencen antes. Targets (90 días) solo se renueva con una publicación nueva, porque necesita las dos claves.
+- **`init` no sobrescribe** claves ni metadatos existentes.
+- **python-tuf v7** exige el argumento `bootstrap` en `Updater`. El launcher (Fase 5) le pasará `launcher/trust/root.json`, como recomienda el ejemplo oficial para producción.
+- **Prueba del criterio** (claves de prueba, fuera de `keys/`) con el cliente `tuf.ngclient` real contra un servidor local:
+  - targets firmado solo con `targets-ci` y publicado en snapshot/timestamp → el cliente rechaza con `UnsignedMetadataError: targets was signed by 1/2 keys`;
+  - con la segunda firma (`targets-dev`), el cliente acepta y descarga el *target*;
+  - timestamp de versión anterior → `BadVersionNumberError` (protección contra *rollback*, escenario I2);
+  - *target* alterado en el servidor → `LengthOrHashMismatchError` (escenario I1);
+  - firmar targets con la clave `online` → la herramienta lo rechaza (clave no autorizada para el rol).
