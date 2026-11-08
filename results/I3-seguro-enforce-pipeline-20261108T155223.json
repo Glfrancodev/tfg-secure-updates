@@ -1,0 +1,27 @@
+{
+  "scenario": "I3",
+  "config": "seguro-enforce",
+  "kind": "pipeline",
+  "date": "2026-11-08T15:52:23",
+  "run_id": 42516935780,
+  "attempt": 1,
+  "tag": "v1.3.0",
+  "commit": "7f0ad1bd1ab90add670c7fe0f48f6744b20b3dca",
+  "url": "https://github.com/Glfrancodev/tfg-secure-updates/actions/runs/42516935780",
+  "conclusion": "failure",
+  "gates": {
+    "semgrep": "passed",
+    "clamav": "passed",
+    "yara": "failed",
+    "source_match": "failed"
+  },
+  "published": false,
+  "jobs": {
+    "build": "success",
+    "gates": "failure",
+    "provenance": "skipped",
+    "sign": "skipped",
+    "tuf-stage": "skipped",
+    "release": "skipped"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "scenario": "I3",
+  "config": "baseline",
+  "mode": "baseline",
+  "date": "2026-11-08T15:52:33",
+  "version_installed": "1.3.0",
+  "pwned": true,
+  "markers": [
+    "PWNED_I3.txt"
+  ]
+}
