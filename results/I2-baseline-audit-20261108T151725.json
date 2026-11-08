@@ -1,0 +1,19 @@
+{
+  "scenario": "I2",
+  "config": "baseline",
+  "mode": "baseline",
+  "date": "2026-11-08T15:17:25",
+  "version_installed": "1.1.2",
+  "version_offered": "1.0.0",
+  "controls": {
+    "sha256": {
+      "result": "passed",
+      "reason": "coincide con latest.json (mismo canal)",
+      "ms": 0
+    }
+  },
+  "accepted": true,
+  "would_install": true,
+  "installed": false,
+  "pwned": false
+}
