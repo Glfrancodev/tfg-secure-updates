@@ -1,0 +1,3 @@
+# gh-pages es el servidor de distribucion: los archivos se sirven byte a byte, sin convertir
+# fines de linea. Si Git los convirtiera, sus hashes dejarian de coincidir con los de TUF.
+* -text
