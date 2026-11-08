@@ -10,6 +10,7 @@
 
 ## Fase 1 — Juego de prueba
 
+- **El juego es un Snake** (pedido de Gabriel), en lugar del cuadrado que solo se mueve, para que funcione como un juego de verdad. Cumple igual lo que pide el plan: ventana de 640x480, flechas o WASD, el texto "Mi Juego de Prueba — v{VERSION}", la nota de versión antigua en la 1.0.0, y sin red ni acceso a archivos fuera de su carpeta. Usa solo `pygame` y la biblioteca estándar (`random`, `pathlib`).
 - **Zip determinista** (`build/package.py`): además de lo que pide el plan (entradas ordenadas, fecha 1980-01-01, sin atributos extra), fija el sistema de origen (Unix) y los permisos (0644) de cada entrada, porque `zipfile` usa valores distintos en Windows y en Linux. Las entradas van **sin compresión**, porque la salida de deflate puede variar entre versiones de zlib y eso cambiaría el hash entre máquinas. Las entradas van en la raíz del zip, sin la carpeta `game/`, y se excluyen `__pycache__/` y `*.pyc`.
 - **`.gitattributes` con `eol=lf`** (archivo no listado en la sección 5): la PC de desarrollo tiene `core.autocrlf=true`, que deja los archivos con CRLF en Windows y LF en el *runner*. Así, el mismo commit daría zips distintos en la PC y en CI. Con LF en todas las copias, el mismo código produce el mismo zip en ambos lados.
 - **Acción compuesta `build-game`**: instala Python 3.12.10 con `actions/setup-python` (fijada por SHA) antes de ejecutar `package.py`, para que el *build* use la misma versión de Python en los dos *workflows* y en la PC. Se prueba por primera vez en la Fase 2, con `publish-baseline.yml`.
