@@ -1,0 +1,29 @@
+{
+  "scenario": "D1",
+  "config": "seguro-report",
+  "mode": "secure",
+  "date": "2026-11-08T15:46:35",
+  "version_installed": "1.1.2",
+  "version_offered": "1.2.0",
+  "controls": {
+    "tuf": {
+      "result": "passed",
+      "reason": "metadatos firmados válidos y hashes de los 4 archivos correctos",
+      "ms": 51
+    },
+    "cosign": {
+      "result": "passed",
+      "reason": "Verified OK",
+      "ms": 907
+    },
+    "slsa": {
+      "result": "passed",
+      "reason": "PASSED: SLSA verification passed",
+      "ms": 1095
+    }
+  },
+  "accepted": true,
+  "would_install": true,
+  "installed": false,
+  "pwned": false
+}

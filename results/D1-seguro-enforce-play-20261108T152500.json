@@ -1,0 +1,9 @@
+{
+  "scenario": "D1",
+  "config": "seguro-enforce",
+  "mode": "secure",
+  "date": "2026-11-08T15:25:00",
+  "version_installed": "1.1.2",
+  "pwned": false,
+  "markers": []
+}
