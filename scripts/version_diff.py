@@ -26,7 +26,12 @@ def git_show(ref_path):
 
 def previous_from_gh_pages(workdir):
     """Descarga de gh-pages el último zip publicado. Devuelve (ruta, descripción) o (None, motivo)."""
-    if subprocess.run(["git", "fetch", "-q", "--depth=1", "origin", "gh-pages"]).returncode != 0:
+    # --depth=1 solo si el repositorio ya es superficial (el checkout de CI): en un clon completo,
+    # un fetch superficial recortaría el historial local de gh-pages.
+    shallow = subprocess.run(["git", "rev-parse", "--is-shallow-repository"],
+                             capture_output=True, text=True).stdout.strip() == "true"
+    fetch = ["git", "fetch", "-q", *(["--depth=1"] if shallow else []), "origin", "gh-pages"]
+    if subprocess.run(fetch).returncode != 0:
         return None, "no se pudo descargar gh-pages"
     for latest_path, key, prefix in (("secure/targets/latest.json", "artifact", "secure/targets/"),
                                      ("baseline/latest.json", "file", "baseline/")):

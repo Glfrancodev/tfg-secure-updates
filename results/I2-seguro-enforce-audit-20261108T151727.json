@@ -1,0 +1,29 @@
+{
+  "scenario": "I2",
+  "config": "seguro-enforce",
+  "mode": "secure",
+  "date": "2026-11-08T15:17:27",
+  "version_installed": "1.1.2",
+  "version_offered": "1.1.1",
+  "controls": {
+    "tuf": {
+      "result": "blocked",
+      "reason": "BadVersionNumberError: New timestamp version 2 must be >= 3",
+      "ms": 33
+    },
+    "cosign": {
+      "result": "passed",
+      "reason": "Verified OK",
+      "ms": 822
+    },
+    "slsa": {
+      "result": "passed",
+      "reason": "PASSED: SLSA verification passed",
+      "ms": 1116
+    }
+  },
+  "accepted": false,
+  "would_install": false,
+  "installed": false,
+  "pwned": false
+}

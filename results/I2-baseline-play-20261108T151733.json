@@ -1,0 +1,9 @@
+{
+  "scenario": "I2",
+  "config": "baseline",
+  "mode": "baseline",
+  "date": "2026-11-08T15:17:33",
+  "version_installed": "1.0.0",
+  "pwned": false,
+  "markers": []
+}
