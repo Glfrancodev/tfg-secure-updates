@@ -1,0 +1,366 @@
+name: publish-secure
+
+# Canal seguro (la propuesta): build → gates → procedencia SLSA + firma cosign →
+# TUF firmado por CI → [aprobación de Gabriel] → segunda firma TUF + snapshot/timestamp → gh-pages.
+on:
+  push:
+    tags: ['v*']
+
+permissions: read-all
+
+concurrency:
+  group: gh-pages
+  cancel-in-progress: false
+
+env:
+  GATE_MODE: ${{ vars.GATE_MODE || 'enforce' }}
+  PYTHON_VERSION: '3.12.10'
+  SEMGREP_VERSION: '1.184.0'
+  YARA_APT_VERSION: '4.5.0-1build2'
+  CLAMAV_IMAGE: 'clamav/clamav-debian:1.5.4@sha256:c21aa18cc0a358678255a3dfb343a4555b58f71b97d7b869df8fdf7ea0a5b4b1'
+  COSIGN_VERSION: 'v3.1.4'
+
+defaults:
+  run:
+    # Con "shell: bash" explícito, GitHub usa -eo pipefail: "comando | tee" falla si el comando falla.
+    shell: bash
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    outputs:
+      hashes: ${{ steps.hash.outputs.hashes }}
+      version: ${{ steps.ver.outputs.version }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - id: ver
+        name: Versión (el tag debe coincidir con game/VERSION)
+        run: |
+          version="$(cat game/VERSION)"
+          if [ "${GITHUB_REF_NAME}" != "v${version}" ]; then
+            echo "::error::El tag ${GITHUB_REF_NAME} no coincide con game/VERSION (${version})"
+            exit 1
+          fi
+          echo "version=${version}" >> "$GITHUB_OUTPUT"
+
+      - uses: ./.github/actions/build-game
+
+      - id: hash
+        name: Hash para el generador SLSA
+        run: echo "hashes=$(cd dist && sha256sum game-*.zip | base64 -w0)" >> "$GITHUB_OUTPUT"
+
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: game
+          path: dist/game-${{ steps.ver.outputs.version }}.zip
+          if-no-files-found: error
+
+  gates:
+    needs: build
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: game
+          path: dist
+
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Instalar Semgrep y YARA
+        run: |
+          python -m pip install --disable-pip-version-check -q "semgrep==${SEMGREP_VERSION}"
+          sudo apt-get update -q
+          sudo apt-get install -y -q --no-install-recommends "yara=${YARA_APT_VERSION}"
+          semgrep --version
+          yara --version
+
+      - name: Extraer el artefacto
+        run: |
+          mkdir -p dist/unpacked reports
+          unzip -q dist/game-*.zip -d dist/unpacked
+          find dist/unpacked -type f | sort
+
+      - id: semgrep
+        name: 'Gate: Semgrep'
+        continue-on-error: true
+        run: |
+          semgrep scan --config rules/semgrep --error --metrics=off --disable-version-check game/ launcher/ \
+            2>&1 | tee reports/semgrep.txt
+
+      - name: 'ClamAV: descargar la imagen oficial con firmas'
+        run: |
+          docker pull -q "${CLAMAV_IMAGE}"
+          docker run --rm "${CLAMAV_IMAGE}" clamscan --version | tee reports/clamav-version.txt
+
+      - name: 'ClamAV: autoprueba EICAR'
+        run: |
+          # El archivo de prueba EICAR se arma en /tmp del runner y en dos partes,
+          # para que la cadena completa nunca esté en el repositorio.
+          mkdir -p /tmp/eicar
+          printf '%s%s' 'X5O!P%@AP[4\PZX54(P^)7CC)7}$EICAR' '-STANDARD-ANTIVIRUS-TEST-FILE!$H+H*' > /tmp/eicar/eicar.com
+          set +e
+          docker run --rm -v /tmp/eicar:/scandir:ro "${CLAMAV_IMAGE}" clamscan --infected --no-summary /scandir
+          rc=$?
+          set -e
+          if [ "$rc" -ne 1 ]; then
+            echo "::error::ClamAV no detectó EICAR (código ${rc}): la base de firmas no funciona"
+            exit 1
+          fi
+          echo "Autoprueba superada: ClamAV detecta EICAR."
+
+      - id: clamav
+        name: 'Gate: ClamAV'
+        continue-on-error: true
+        run: |
+          docker run --rm -v "${PWD}/dist/unpacked:/scandir:ro" "${CLAMAV_IMAGE}" clamscan -r --infected /scandir \
+            2>&1 | tee reports/clamav.txt
+
+      - id: yara
+        name: 'Gate: YARA'
+        continue-on-error: true
+        run: |
+          # yara devuelve 0 aunque haya coincidencias: el gate falla si la salida no está vacía.
+          yara -r -s rules/yara/game.yar dist/unpacked/ | tee reports/yara.txt
+          if [ -s reports/yara.txt ]; then
+            echo "::error::YARA encontró indicadores de la política en el artefacto"
+            exit 1
+          fi
+          echo "Sin coincidencias."
+
+      - id: source
+        name: 'Gate: fuente vs artefacto'
+        continue-on-error: true
+        run: python scripts/verify_source_match.py dist/game-*.zip game/ | tee reports/source-match.txt
+
+      - name: Diff de versiones (informativo)
+        continue-on-error: true
+        run: python scripts/version_diff.py dist/game-*.zip | tee reports/version-diff.txt
+
+      - name: Decisión de los gates
+        if: always()
+        env:
+          SEMGREP: ${{ steps.semgrep.outcome }}
+          CLAMAV: ${{ steps.clamav.outcome }}
+          YARA: ${{ steps.yara.outcome }}
+          SOURCE: ${{ steps.source.outcome }}
+        run: |
+          failed=0
+          not_run=0
+          {
+            echo "### Gates del pipeline (GATE_MODE=${GATE_MODE})"
+            echo ""
+            echo "| Gate | Resultado |"
+            echo "|---|---|"
+          } >> "$GITHUB_STEP_SUMMARY"
+          for gate in "Semgrep=${SEMGREP}" "ClamAV=${CLAMAV}" "YARA=${YARA}" "Fuente vs artefacto=${SOURCE}"; do
+            name="${gate%%=*}"
+            outcome="${gate#*=}"
+            case "$outcome" in
+              success) mark="✅ pasa" ;;
+              failure) mark="❌ falla"; failed=1 ;;
+              *) mark="⚠️ no se ejecutó (${outcome:-sin resultado})"; not_run=1 ;;
+            esac
+            echo "| ${name} | ${mark} |" >> "$GITHUB_STEP_SUMMARY"
+          done
+          if [ "$not_run" -eq 1 ]; then
+            echo "::error::Algún gate no llegó a ejecutarse: se bloquea en cualquier modo."
+            exit 1
+          fi
+          if [ "$failed" -eq 1 ]; then
+            if [ "$GATE_MODE" = "report" ]; then
+              echo "::warning::Hay gates que fallan, pero GATE_MODE=report: el pipeline continúa y el artefacto se firma igual."
+              printf '\n**GATE_MODE=report:** los fallos se registran pero no detienen la publicación.\n' >> "$GITHUB_STEP_SUMMARY"
+            else
+              echo "::error::Hay gates que fallan y GATE_MODE=${GATE_MODE}: no se publica."
+              exit 1
+            fi
+          fi
+
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        if: always()
+        with:
+          name: gate-reports
+          path: reports/
+
+  provenance:
+    needs: [build, gates]
+    permissions:
+      actions: read     # detectar el entorno de GitHub Actions
+      id-token: write   # firmar la procedencia
+      contents: write   # lo exige el generador (solo se usa si upload-assets es true)
+    # El generador SLSA exige referencia por tag, no por SHA.
+    uses: slsa-framework/slsa-github-generator/.github/workflows/generator_generic_slsa3.yml@v2.1.0
+    with:
+      base64-subjects: ${{ needs.build.outputs.hashes }}
+      upload-assets: false
+
+  sign:
+    needs: [build, gates]
+    runs-on: ubuntu-24.04
+    permissions:
+      id-token: write   # certificado de Fulcio con la identidad del workflow
+      contents: read
+    steps:
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: game
+          path: dist
+
+      - uses: sigstore/cosign-installer@756fe2d284c7292c4e9b62c8a28f1e5629c59532 # v4.1.3
+        with:
+          cosign-release: ${{ env.COSIGN_VERSION }}
+
+      - name: Firmar con cosign (Fulcio + Rekor)
+        env:
+          VERSION: ${{ needs.build.outputs.version }}
+        run: |
+          zip="game-${VERSION}.zip"
+          cd dist
+          cosign sign-blob --yes --bundle "${zip}.sigstore.json" "${zip}"
+          entry="$(jq -c '.verificationMaterial.tlogEntries[0] | {logIndex, integratedTime, logId: .logId.keyId}' "${zip}.sigstore.json")"
+          index="$(jq -r '.verificationMaterial.tlogEntries[0].logIndex' "${zip}.sigstore.json")"
+          {
+            echo "### Firma cosign de ${zip}"
+            echo ""
+            echo "Entrada en Rekor: \`${entry}\`"
+            echo ""
+            echo "Buscar en https://search.sigstore.dev/?logIndex=${index}"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: bundle
+          path: dist/game-${{ needs.build.outputs.version }}.zip.sigstore.json
+          if-no-files-found: error
+
+  tuf-stage:
+    needs: [build, provenance, sign]
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Instalar python-tuf
+        run: python -m pip install --disable-pip-version-check -q -r requirements.txt
+
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: gh-pages
+          path: pages
+          persist-credentials: false
+
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: game
+          path: staging
+
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: bundle
+          path: staging
+
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: ${{ needs.provenance.outputs.provenance-name }}
+          path: staging
+
+      - name: Agregar los targets y firmar targets (clave targets-ci)
+        env:
+          VERSION: ${{ needs.build.outputs.version }}
+          TUF_TARGETS_CI_KEY: ${{ secrets.TUF_TARGETS_CI_KEY }}
+        run: |
+          zip="game-${VERSION}.zip"
+          printf '{ "version": "%s", "artifact": "%s", "bundle": "%s", "provenance": "%s" }\n' \
+            "$VERSION" "$zip" "${zip}.sigstore.json" "${zip}.intoto.jsonl" > staging/latest.json
+          ls -l staging
+          python tuf_repo/repo_tool.py --repo pages/secure add-targets \
+            "staging/${zip}" "staging/${zip}.sigstore.json" "staging/${zip}.intoto.jsonl" staging/latest.json \
+            --key targets-ci
+          python tuf_repo/repo_tool.py --repo pages/secure status | tee status.txt
+          {
+            echo "### Para aprobar: v${VERSION}"
+            echo ""
+            echo "targets firmado por CI (1 de 2 firmas). Al aprobar el environment \`release\`, se agrega la firma de desarrollo y se publica."
+            echo ""
+            echo '```'
+            (cd staging && sha256sum "${zip}" "${zip}.sigstore.json" "${zip}.intoto.jsonl" latest.json)
+            echo ""
+            cat status.txt
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: tuf-staged
+          path: |
+            pages/secure/metadata/
+            pages/secure/targets/game-${{ needs.build.outputs.version }}.zip
+            pages/secure/targets/game-${{ needs.build.outputs.version }}.zip.sigstore.json
+            pages/secure/targets/game-${{ needs.build.outputs.version }}.zip.intoto.jsonl
+            pages/secure/targets/latest.json
+          if-no-files-found: error
+
+  release:
+    needs: [build, tuf-stage]
+    runs-on: ubuntu-24.04
+    environment: release   # 👤 requiere la aprobación de Gabriel
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Instalar python-tuf
+        run: python -m pip install --disable-pip-version-check -q -r requirements.txt
+
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: gh-pages
+          path: pages
+          fetch-depth: 0
+
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: tuf-staged
+          path: pages/secure
+
+      - name: Segunda firma de targets (targets-dev) y snapshot/timestamp (online)
+        env:
+          TUF_TARGETS_DEV_KEY: ${{ secrets.TUF_TARGETS_DEV_KEY }}
+          TUF_ONLINE_KEY: ${{ secrets.TUF_ONLINE_KEY }}
+        run: |
+          python tuf_repo/repo_tool.py --repo pages/secure sign-targets --key targets-dev
+          python tuf_repo/repo_tool.py --repo pages/secure update-snapshot-timestamp --key online
+          python tuf_repo/repo_tool.py --repo pages/secure status
+
+      - name: Publicar en gh-pages/secure
+        env:
+          VERSION: ${{ needs.build.outputs.version }}
+        run: |
+          cd pages
+          git add secure
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -q -m "secure: publica v${VERSION} (${GITHUB_REF_NAME})"
+          git pull -q --rebase origin gh-pages
+          git push -q origin HEAD:gh-pages
+          echo "### Canal seguro: v${VERSION} publicada en gh-pages/secure" >> "$GITHUB_STEP_SUMMARY"
