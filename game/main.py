@@ -9,7 +9,6 @@ import pygame
 
 GAME_DIR = Path(__file__).resolve().parent
 VERSION = (GAME_DIR / "VERSION").read_text(encoding="utf-8").strip()
-OLD_VERSION_NOTE = "(versión antigua — fallo conocido corregido en 1.1.0)"
 
 WIDTH, HEIGHT = 640, 480
 HUD_HEIGHT = 80
@@ -25,7 +24,6 @@ SNAKE_HEAD = (120, 200, 255)
 SNAKE_BODY = (80, 170, 255)
 FOOD = (240, 90, 90)
 TEXT_COLOR = (235, 235, 235)
-NOTE_COLOR = (255, 190, 80)
 
 DIRECTIONS = {
     pygame.K_UP: (0, -1), pygame.K_w: (0, -1),
@@ -87,11 +85,10 @@ def cell_rect(cell):
 
 
 def draw(screen, fonts, game):
-    title_font, note_font = fonts
+    title_font, small_font = fonts
     screen.fill(BACKGROUND)
     screen.blit(title_font.render(f"Mi Juego de Prueba — v{VERSION}", True, TEXT_COLOR), (20, 20))
-    screen.blit(note_font.render(OLD_VERSION_NOTE, True, NOTE_COLOR), (20, 54))
-    score = note_font.render(f"Puntaje: {game.score}", True, TEXT_COLOR)
+    score = small_font.render(f"Puntaje: {game.score}", True, TEXT_COLOR)
     screen.blit(score, (WIDTH - score.get_width() - 20, 26))
 
     pygame.draw.rect(screen, BOARD, (0, HUD_HEIGHT, WIDTH, HEIGHT - HUD_HEIGHT))
@@ -103,7 +100,7 @@ def draw(screen, fonts, game):
     if game.over:
         lines = [f"Fin del juego — puntaje {game.score}", "R o Espacio para jugar de nuevo"]
         for i, text in enumerate(lines):
-            surface = (title_font if i == 0 else note_font).render(text, True, TEXT_COLOR)
+            surface = (title_font if i == 0 else small_font).render(text, True, TEXT_COLOR)
             y = HUD_HEIGHT + (HEIGHT - HUD_HEIGHT) // 2 - 30 + i * 40
             screen.blit(surface, ((WIDTH - surface.get_width()) // 2, y))
 
