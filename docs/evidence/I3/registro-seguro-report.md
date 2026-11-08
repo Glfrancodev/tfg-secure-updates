@@ -1,0 +1,45 @@
+# I3 — registro de la corrida automática (seguro-report)
+
+```text
+## 1. Preparación (version:1.1.2)
+    mirror/ restaurado.
+    Listo: C:\Users\GLFRANCO\.tfg-demo\fake_wallet.txt contiene 'DEMO-SEED-NO-ES-REAL'
+    ambos modos con la 1.1.2 legítima instalada; seguro con metadatos de confianza al día (disponible en el canal seguro: 1.3.0)
+
+## 2. Ataque
+    (el ataque es la publicación por el pipeline: el mirror sirve lo que hay en gh-pages)
+
+## 3. Auditoría (cada control por separado; nunca instala)
+- **baseline** · versión ofrecida 1.3.0 → I3-baseline-audit-20261108T155729.json
+    ✅ sha256: coincide con latest.json (mismo canal) (0 ms)
+    ¿Pasa todos los controles?: sí
+- **secure** · versión ofrecida 1.3.0 → I3-seguro-report-audit-20261108T155731.json
+    ✅ TUF: metadatos firmados válidos y hashes de los 4 archivos correctos (215 ms)
+    ✅ cosign: Verified OK (858 ms)
+    ✅ SLSA: PASSED: SLSA verification passed (1072 ms)
+    ¿Pasa todos los controles?: sí
+
+## 4. Modo normal (actualizar y jugar)
+- **baseline**
+    ✅ sha256: coincide con latest.json (mismo canal) (0 ms)
+    Instalada la versión 1.3.0. · instalada: 1.3.0
+    🚨 El juego ejecutó código malicioso (simulado): PWNED_I3.txt
+       | 2026-11-08T15:57:31
+       | escenario: I3
+       | datos simulados copiados: DEMO-SEED-NO-ES-REAL
+- **secure**
+    ✅ TUF: metadatos firmados válidos y hashes de los 4 archivos correctos (77 ms)
+    ✅ cosign: Verified OK (827 ms)
+    ✅ SLSA: PASSED: SLSA verification passed (1094 ms)
+    Instalada la versión 1.3.0. · instalada: 1.3.0
+    🚨 El juego ejecutó código malicioso (simulado): PWNED_I3.txt
+       | 2026-11-08T15:57:40
+       | escenario: I3
+       | datos simulados copiados: DEMO-SEED-NO-ES-REAL
+
+## 5. Restauración
+    mirror/ restaurado.
+    Borrado C:\Users\GLFRANCO\.tfg-demo\baseline
+    Borrado C:\Users\GLFRANCO\.tfg-demo\secure
+    Borrado C:\Users\GLFRANCO\.tfg-demo\PWNED_I3.txt
+```
