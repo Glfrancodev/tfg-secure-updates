@@ -132,3 +132,15 @@
 - **D2 no se bloquea** (prevista): un desarrollador que conoce las reglas públicas las evade. La propuesta reduce el riesgo del desarrollador malicioso (D1 se bloquea) pero no lo elimina. Queda la trazabilidad (Rekor, procedencia y `git log`) para responder al incidente.
 - **Generador SLSA v2.1.0** (2025-02): sigue siendo la última versión, pero usa internamente Node 20 y `ubuntu-latest` (avisos en cada run).
 - **Tiempos con resolución de 1 s** en GitHub Actions y con *runners* compartidos: la variación entre corridas incluye la carga de la infraestructura de GitHub.
+
+## Fase 8 — Preparación para la defensa
+
+- **Guion de la demo** en el `README.md`: H0 → I1 → I2 → D1 → D2 en 10 minutos, con los comandos de cada caso.
+- **D1 y D2 en vivo sin publicar *tags* nuevos:** el *mirror* sirve los commits históricos de `gh-pages` (`git -C mirror checkout <commit> -- baseline|secure`) y los clientes, limpios después de `reset_demo.py`, instalan desde ahí. Se probó: D1 → baseline PWNED y seguro sigue en 1.1.2; D2 → PWNED en los dos con TUF, cosign y SLSA ✅. `reset_demo.py` deshace el *checkout*.
+- **Vencimientos para la defensa:** el timestamp del canal en vivo vence el 2026-12-08 20:27 UTC. 👤 Una semana antes de la defensa hay que ejecutar `refresh-timestamp` y publicar (comandos en el README). El estado histórico de D2 vence el 2026-12-08 20:06 UTC y no se puede renovar sin rehacer la publicación. Después de esa fecha, D2 se muestra con el modo auditoría, el run en Actions y la trazabilidad.
+- **Prueba sin internet** (simulada con un *proxy* inexistente para todo menos `127.0.0.1`):
+  - el *mirror*, el canal baseline completo y la verificación **TUF** funcionan sin red;
+  - **cosign** falla: `error getting live trusted root ... tuf refresh failed`. En v3 refresca la raíz de confianza de Sigstore desde `tuf-repo-cdn.sigstore.dev`. Admite `--trusted-root <archivo>` para verificar fuera de línea, pero no se agregó: slsa-verifier no tiene equivalente y la verificación quedaría incompleta igual;
+  - **slsa-verifier v2.7.1** falla: `tuf refresh failed: Get "https://tuf-repo-cdn.sigstore.dev/10.root.json"`. No tiene opción para trabajar sin red;
+  - consecuencia: sin internet, el launcher seguro **bloquea también las versiones legítimas** (falla cerrado). Para la defensa, internet en la sala y, de respaldo, los registros de `docs/evidence/` y las capturas. Limitación: la verificación de firmas sin claves (Sigstore) depende de la disponibilidad de la infraestructura de Sigstore en el cliente, aunque la distribución (TUF) no dependa de ella.
+- **Pendiente (👤):** capturas de la interfaz para cada escenario (se pueden tomar en el ensayo siguiendo el guion) y el `refresh-timestamp` antes de la defensa.
