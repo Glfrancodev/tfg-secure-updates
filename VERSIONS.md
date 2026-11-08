@@ -36,9 +36,20 @@ Se completa en las fases 1, 2 y 4, verificando cada versión contra su documenta
 | Python en el *runner* | 3.12.10 (`python-3.12.10-linux-24.04-x64` de `actions/python-versions`), la misma versión que en la PC | 1 |
 | Imagen del *runner* | `ubuntu-24.04` (fija, no `ubuntu-latest`) | 2 |
 | `actions/checkout` | `3d3c42e5aac5ba805825da76410c181273ba90b1` (v7.0.1) | 2 |
-| `actions/upload-artifact` / `actions/download-artifact` | pendiente (SHA) | 4 |
-| `sigstore/cosign-installer` (debe instalar cosign v3.1.4, igual que el cliente) | pendiente (SHA) | 4 |
-| `slsa-framework/slsa-github-generator` → `generator_generic_slsa3.yml` | pendiente (*tag*) | 4 |
-| Semgrep | pendiente | 4 |
-| ClamAV (y origen de las firmas) | pendiente | 4 |
-| YARA | pendiente | 4 |
+| `actions/upload-artifact` | `cf430e030ddbb5b0abf93d22962f4752f3646cd9` (v7.0.2) | 4 |
+| `actions/download-artifact` | `9000827ccba6bdab643e8b6fd33ac0654aef8333` (v8.0.2) | 4 |
+| `sigstore/cosign-installer` | `756fe2d284c7292c4e9b62c8a28f1e5629c59532` (v4.1.3), con `cosign-release: v3.1.4` (la misma versión que el cliente) | 4 |
+| `slsa-framework/slsa-github-generator` → `generator_generic_slsa3.yml` | `@v2.1.0` (por *tag*, como exige el generador) | 4 |
+| Semgrep | 1.184.0 (`pip install semgrep==1.184.0`) | 4 |
+| YARA | 4.5.0 (paquete de Ubuntu `yara=4.5.0-1build2`, *pocket* Release de noble: no cambia) | 4 |
+| ClamAV | 1.5.4, imagen oficial `clamav/clamav-debian:1.5.4@sha256:c21aa18cc0a358678255a3dfb343a4555b58f71b97d7b869df8fdf7ea0a5b4b1` | 4 |
+
+### Decisión sobre ClamAV y sus firmas
+
+El plan prevé `freshclam` en el *runner* y, si falla por límite de descargas, cachear las firmas o usar la imagen oficial. Se usa **directamente la imagen oficial `clamav/clamav-debian`**. Según su documentación, las etiquetas sin `_base` vienen "precargadas con las bases de firmas", y el proyecto ClamAV recomienda no descargar la base completa en cada ejecución. Al fijar la imagen por *digest*:
+
+- la versión del motor **y** la de las firmas quedan fijas y reproducibles: motor 1.5.4, base `daily` 28172 del 2026-11-02, 3 628 245 firmas;
+- no hay riesgo de que `freshclam` falle por el límite de descargas en IPs compartidas de GitHub;
+- la "descarga de firmas" de la medición de tiempos (Fase 7) corresponde al `docker pull` de la imagen.
+
+**Limitación:** las firmas no se actualizan solas. Para actualizarlas, se cambia el *digest* por uno más reciente y se anota aquí. Para esta prueba de concepto no importa, porque ningún *payload* simulado tiene firma conocida (ver escenario D1).

@@ -1,0 +1,63 @@
+# Política del juego: el juego no necesita nada fuera de su carpeta.
+# Estas reglas se aplican solo a game/ y quedan CONGELADAS desde la Fase 4 (regla 7 del plan).
+# Cualquier cambio posterior se documenta como iteración en results/NOTAS.md.
+rules:
+  - id: game-no-user-directory
+    languages: [python]
+    severity: ERROR
+    message: >-
+      Política del juego: no accede al directorio del usuario (Path.home, expanduser
+      o variables USERPROFILE/HOME/APPDATA). El juego solo usa archivos de su propia carpeta.
+    paths:
+      include: ["/game/"]
+    pattern-either:
+      - pattern: pathlib.Path.home()
+      - pattern: os.path.expanduser(...)
+      - patterns:
+          - pattern-either:
+              - pattern: os.environ[$KEY]
+              - pattern: os.environ.get($KEY, ...)
+              - pattern: os.getenv($KEY, ...)
+          - metavariable-regex:
+              metavariable: $KEY
+              regex: ^["'](USERPROFILE|HOME|APPDATA)["']$
+
+  - id: game-no-process-execution
+    languages: [python]
+    severity: ERROR
+    message: >-
+      Política del juego: no ejecuta otros programas (subprocess, os.system, os.popen).
+    paths:
+      include: ["/game/"]
+    pattern-either:
+      - pattern: import subprocess
+      - pattern: from subprocess import $NAME
+      - pattern: subprocess.$FUNC(...)
+      - pattern: os.system(...)
+      - pattern: os.popen(...)
+
+  - id: game-no-network
+    languages: [python]
+    severity: ERROR
+    message: >-
+      Política del juego: no usa la red (socket, urllib, http.client, requests).
+    paths:
+      include: ["/game/"]
+    patterns:
+      - pattern-either:
+          - pattern: import $MODULE
+          - pattern: from $MODULE import $NAME
+      - metavariable-regex:
+          metavariable: $MODULE
+          regex: ^(socket|urllib|http\.client|requests)(\.|$)
+
+  - id: game-no-dynamic-code
+    languages: [python]
+    severity: ERROR
+    message: >-
+      Política del juego: no ejecuta código dinámico (eval, exec).
+    paths:
+      include: ["/game/"]
+    pattern-either:
+      - pattern: eval(...)
+      - pattern: exec(...)
