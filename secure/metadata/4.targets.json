@@ -1,0 +1,80 @@
+{
+ "signatures": [
+  {
+   "keyid": "19cb24080829697743595f170c10296c36b461c33de3a3b475f69f8f842225c2",
+   "sig": "35acaa28548d469f5de20052b71cd672a5510b6b85a5667237fd85e27fb1d241c9ecfa9f9dd7e021e422668d8e9565b671fc1971f70b74571ee1f66ce09dad09"
+  },
+  {
+   "keyid": "d55d4d06e67485e6012ec3b40ce214da1fb3ec34490b389159693b0a4eaaeebe",
+   "sig": "49d4bdc7b1800d6586cf613549ae04a137d4cf322ec06bc664c94086c99873c751e2fd1da9d87b0f5186cd52952a952182dce91a980534b36d181733014d6e06"
+  }
+ ],
+ "signed": {
+  "_type": "targets",
+  "expires": "2027-02-06T19:55:27Z",
+  "spec_version": "1.0.31",
+  "targets": {
+   "game-1.1.1.zip": {
+    "hashes": {
+     "sha256": "56ab0e10cccda1e83ceed04a38b588762da965ec3b059b51a20434761c544e01"
+    },
+    "length": 4678
+   },
+   "game-1.1.1.zip.intoto.jsonl": {
+    "hashes": {
+     "sha256": "ba1d5fccaa7fb8b88d3b8b52ccceaef0b1db4da8e3d074072575f20e4474bcbe"
+    },
+    "length": 21731
+   },
+   "game-1.1.1.zip.sigstore.json": {
+    "hashes": {
+     "sha256": "b7e01cf6b318a92004deaf74c0f7be6583cc656c8287ec5080c02a6fcb007b15"
+    },
+    "length": 10491
+   },
+   "game-1.1.2.zip": {
+    "hashes": {
+     "sha256": "4b676777735ca385d3c42c52bb5356c8bb73df0cd7baad9a22e44e24f7b0c385"
+    },
+    "length": 4678
+   },
+   "game-1.1.2.zip.intoto.jsonl": {
+    "hashes": {
+     "sha256": "8aa74d1519007d113b712e8830d3ac8b149ec4c95461cb1e683d67f5a67ba1ee"
+    },
+    "length": 21803
+   },
+   "game-1.1.2.zip.sigstore.json": {
+    "hashes": {
+     "sha256": "7f1e4303779ba8e00af28c04a06583ab24adb58f4183b80c0bdd82a5bd54930b"
+    },
+    "length": 10579
+   },
+   "game-1.3.0.zip": {
+    "hashes": {
+     "sha256": "d2089cc7b48f2676c90128f1e489c3a7aa0aebfe20482109ac28c035a531863c"
+    },
+    "length": 5833
+   },
+   "game-1.3.0.zip.intoto.jsonl": {
+    "hashes": {
+     "sha256": "a2ef4def6bcdd53a70bb0afb2d81b19b670b11ac2d41c4f3d3e0d03322c21f2a"
+    },
+    "length": 21883
+   },
+   "game-1.3.0.zip.sigstore.json": {
+    "hashes": {
+     "sha256": "be399c5634e225fd103a003303969eb95eef217c2fcb9d25b355d3b8d8f71648"
+    },
+    "length": 10587
+   },
+   "latest.json": {
+    "hashes": {
+     "sha256": "3a75f92de774ecea213c8ac793ed52fbe938c3a1e05472b9fbec36ed1885cb5c"
+    },
+    "length": 140
+   }
+  },
+  "version": 4
+ }
+}
