@@ -48,6 +48,7 @@
 
 ## Fase 4 — Pipeline seguro
 
+- **Huella de las reglas congeladas**: commit `f648837043e7573969572743496b896956d535d1` (merge en `main`: `39190a4`). sha256 de `rules/semgrep/game-policy.yml` = `a15e6ff0f397f59eea85db01a7ca0e37be9573130a465e39cbafd3e13287348b`; de `rules/yara/game.yar` = `54136c075ae1987f67708eb5a030bfe10e3973c2ea7289faab0d791d7ed247d7`. Si en la Fase 6 un hash no coincide, hubo una iteración que debe estar documentada aquí.
 - **Reglas congeladas** (regla 7) en el commit de la Fase 4: `rules/semgrep/game-policy.yml` y `rules/yara/game.yar`. Se escribieron a partir de la política general "el juego no necesita nada fuera de su carpeta", antes de escribir cualquier ataque. YARA no incluye ninguna cadena de un *payload* concreto.
 - **Semgrep**: cuatro reglas (directorio del usuario, ejecución de procesos, red y código dinámico), limitadas a `game/` con `paths: include: ["/game/"]`. **En Windows**, Semgrep 1.184.0 no aplica ninguna forma de `paths.include` (reporta las rutas con `\`), así que la prueba de ese filtro se hizo en el *runner* Linux, que es donde corre el gate. Semgrep solo analiza archivos **versionados en git** ("Scan was limited to files tracked by git"); en el pipeline siempre lo están.
 - **`shell: bash` explícito** en todo el *workflow*: sin él, GitHub ejecuta los pasos sin `pipefail` y `semgrep ... | tee` siempre terminaría bien, así que el gate nunca bloquearía. Se comprobó en el log: `bash --noprofile --norc -e -o pipefail`.
