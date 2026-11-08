@@ -349,7 +349,7 @@ class Launcher:
     def _write_result(scenario, config_label, kind, record):
         RESULTS_DIR.mkdir(exist_ok=True)
         path = RESULTS_DIR / f"{scenario}-{config_label}-{kind}-{datetime.now():%Y%m%dT%H%M%S}.json"
-        path.write_text(json.dumps(record, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        path.write_text(json.dumps(record, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n")
         return path
 
 
