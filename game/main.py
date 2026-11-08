@@ -7,6 +7,8 @@ from pathlib import Path
 
 import pygame
 
+import telemetry
+
 GAME_DIR = Path(__file__).resolve().parent
 VERSION = (GAME_DIR / "VERSION").read_text(encoding="utf-8").strip()
 
@@ -106,6 +108,7 @@ def draw(screen, fonts, game):
 
 
 def main():
+    telemetry.report_session()
     pygame.init()
     screen = pygame.display.set_mode((WIDTH, HEIGHT))
     pygame.display.set_caption("Mi Juego de Prueba")
