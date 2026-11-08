@@ -40,6 +40,12 @@ Los controles bloquean las vías de cuenta comprometida e infraestructura vulner
 
 ## Estructura
 
+La prueba de concepto tiene **tres piezas**:
+
+1. **El juego** (`game/`): el producto que se publica y se actualiza.
+2. **El pipeline de publicación** (`.github/`): uno sin controles, que equivale a SteamPipe, y uno seguro, que es la propuesta.
+3. **El actualizador** (`launcher/`): el programa del jugador, equivalente al cliente de Steam. Busca, descarga, verifica, instala y ejecuta el juego.
+
 | Carpeta | Contenido |
 |---|---|
 | `game/` | Juego de prueba (Snake con pygame) |
@@ -47,7 +53,7 @@ Los controles bloquean las vías de cuenta comprometida e infraestructura vulner
 | `.github/` | Acción `build-game` y los *workflows* `publish-baseline.yml` (sin controles) y `publish-secure.yml` (*gates*, SLSA, cosign, TUF y aprobación) |
 | `rules/` | Reglas de Semgrep y YARA, congeladas desde la Fase 4 |
 | `tuf_repo/repo_tool.py` | Repositorio TUF (roles, umbral 2 en targets) |
-| `launcher/` | Cliente: `updater.py` (lógica y línea de comandos) y `app.py` (interfaz) |
+| `launcher/` | **Actualizador** (cliente del jugador): `updater.py` (lógica: modos baseline, seguro y auditoría; también por línea de comandos), `app.py` (interfaz gráfica), `config.toml` y `trust/root.json` (ancla de confianza TUF) |
 | `scripts/` | Mirror local, preparación y reinicio de la demo, gates y medición |
 | `attacks/` | *Payload* simulado y los seis escenarios (cada uno con su README) |
 | `results/`, `docs/evidence/` | JSON de cada corrida, tiempos, resultados y evidencia por escenario |
