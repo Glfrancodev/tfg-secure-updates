@@ -1,0 +1,19 @@
+{
+  "scenario": "C1",
+  "config": "baseline",
+  "mode": "baseline",
+  "date": "2026-11-08T14:31:29",
+  "version_installed": "1.1.1",
+  "version_offered": "9.9.9",
+  "controls": {
+    "sha256": {
+      "result": "passed",
+      "reason": "coincide con latest.json (mismo canal)",
+      "ms": 0
+    }
+  },
+  "accepted": true,
+  "would_install": true,
+  "installed": false,
+  "pwned": false
+}

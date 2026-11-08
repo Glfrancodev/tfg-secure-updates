@@ -1,0 +1,29 @@
+{
+  "scenario": "C1",
+  "config": "seguro-enforce",
+  "mode": "secure",
+  "date": "2026-11-08T14:31:32",
+  "version_installed": "1.1.1",
+  "version_offered": "9.9.9",
+  "controls": {
+    "tuf": {
+      "result": "blocked",
+      "reason": "UnsignedMetadataError: targets was signed by 1/2 keys",
+      "ms": 113
+    },
+    "cosign": {
+      "result": "blocked",
+      "reason": "error during command execution: failed to verify signature: could not verify message: invalid signature when validating ASN.1 encoded signature",
+      "ms": 849
+    },
+    "slsa": {
+      "result": "blocked",
+      "reason": "FAILED: SLSA verification failed: expected hash '9e37087e796885c2aa0e5ca0284afac5de324954b16dabd05bb143a46586499b' not found: artifact hash does not match provenance subject",
+      "ms": 1093
+    }
+  },
+  "accepted": false,
+  "would_install": false,
+  "installed": false,
+  "pwned": false
+}

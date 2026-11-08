@@ -1,0 +1,29 @@
+{
+  "scenario": "I1",
+  "config": "seguro-enforce",
+  "mode": "secure",
+  "date": "2026-11-08T14:32:02",
+  "version_installed": "1.1.0",
+  "version_offered": "1.1.1",
+  "controls": {
+    "tuf": {
+      "result": "blocked",
+      "reason": "DownloadLengthMismatchError: Downloaded 5861 bytes exceeding the maximum allowed length of 4678",
+      "ms": 128
+    },
+    "cosign": {
+      "result": "blocked",
+      "reason": "error during command execution: failed to verify signature: could not verify message: invalid signature when validating ASN.1 encoded signature",
+      "ms": 838
+    },
+    "slsa": {
+      "result": "blocked",
+      "reason": "FAILED: SLSA verification failed: expected hash '45d1633f5302186871a9b425d7a14d34261d1506fe465e92591127fa4346e6ad' not found: artifact hash does not match provenance subject",
+      "ms": 1082
+    }
+  },
+  "accepted": false,
+  "would_install": false,
+  "installed": false,
+  "pwned": false
+}
