@@ -1,0 +1,11 @@
+{
+  "scenario": "D2",
+  "config": "seguro-enforce",
+  "mode": "secure",
+  "date": "2026-11-08T16:07:54",
+  "version_installed": "1.4.0",
+  "pwned": true,
+  "markers": [
+    "PWNED_D2.txt"
+  ]
+}
