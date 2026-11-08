@@ -1,0 +1,11 @@
+{
+  "scenario": "D1",
+  "config": "baseline",
+  "mode": "baseline",
+  "date": "2026-11-08T15:24:54",
+  "version_installed": "1.2.0",
+  "pwned": true,
+  "markers": [
+    "PWNED_D1.txt"
+  ]
+}
