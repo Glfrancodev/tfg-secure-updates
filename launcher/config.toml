@@ -7,4 +7,15 @@ server_url = "http://127.0.0.1:8000"
 [baseline]
 path = "baseline"
 
-# El canal seguro y las rutas de cosign y slsa-verifier se agregan en la Fase 5.
+[secure]
+path = "secure"
+
+[verification]
+# Nombre (si está en el PATH) o ruta completa de cada herramienta.
+cosign = "cosign"
+slsa_verifier = "slsa-verifier"
+# Identidad que el cliente acepta (sección 3.5 del plan): solo el workflow publish-secure.yml
+# de este repositorio, ejecutado por un tag, con un token OIDC de GitHub Actions.
+cosign_identity_regexp = '^https://github\.com/Glfrancodev/tfg-secure-updates/\.github/workflows/publish-secure\.yml@refs/tags/v'
+cosign_oidc_issuer = "https://token.actions.githubusercontent.com"
+slsa_source_uri = "github.com/Glfrancodev/tfg-secure-updates"

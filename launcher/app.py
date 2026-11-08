@@ -89,9 +89,8 @@ class App:
     def run(self, action):
         if self.busy:
             return
-        if self.audit.get():
-            self.write("El modo auditoría se implementa en la Fase 5.")
-            return
+        if action == "update" and self.audit.get():
+            action = "audit"  # en auditoría, "Actualizar" evalúa cada control y nunca instala
         self.busy = True
         for button in self.buttons:
             button.state(["disabled"])
@@ -100,7 +99,12 @@ class App:
 
         def worker():
             try:
-                self.results.put((action, getattr(launcher, action)(), None))
+                if action == "audit":
+                    label = "baseline" if launcher.mode == "baseline" else "seguro"
+                    result = launcher.audit("manual", label)
+                else:
+                    result = getattr(launcher, action)()
+                self.results.put((action, result, None))
             except Exception as e:  # se muestra en el registro
                 self.results.put((action, None, e))
 
@@ -123,6 +127,12 @@ class App:
             for control in result.controls:
                 self.write(format_control(control))
             self.write(result.message)
+        elif action == "audit":
+            self.write(f"Auditoría (no instala) · versión ofrecida: {result.version or '—'}")
+            for control in result.controls:
+                self.write(format_control(control))
+            self.write(f"¿Pasa todos los controles?: {'sí' if result.accepted else 'no'} · "
+                       f"¿Se instalaría?: {'sí' if result.would_install else 'no'} → {result.path.name}")
         elif action == "play":
             self.write(f"El juego terminó (código {result.returncode}).")
             for marker in result.pwned:
