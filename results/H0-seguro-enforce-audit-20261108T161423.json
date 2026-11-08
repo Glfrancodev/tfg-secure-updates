@@ -1,0 +1,29 @@
+{
+  "scenario": "H0",
+  "config": "seguro-enforce",
+  "mode": "secure",
+  "date": "2026-11-08T16:14:23",
+  "version_installed": "1.1.2",
+  "version_offered": "1.1.2",
+  "controls": {
+    "tuf": {
+      "result": "passed",
+      "reason": "metadatos firmados válidos y hashes de los 4 archivos correctos",
+      "ms": 183
+    },
+    "cosign": {
+      "result": "passed",
+      "reason": "Verified OK",
+      "ms": 884
+    },
+    "slsa": {
+      "result": "passed",
+      "reason": "PASSED: SLSA verification passed",
+      "ms": 1559
+    }
+  },
+  "accepted": true,
+  "would_install": false,
+  "installed": false,
+  "pwned": false
+}
