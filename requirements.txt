@@ -1,0 +1,11 @@
+# Dependencias directas
+pygame==2.6.1
+tuf==7.0.1
+# [crypto] instala cryptography, necesaria para generar y usar claves ed25519 (CryptoSigner)
+securesystemslib[crypto]==1.6.0
+
+# Dependencias transitivas, también fijadas
+cffi==2.1.1
+cryptography==50.0.2
+pycparser==3.12
+urllib3==2.8.0

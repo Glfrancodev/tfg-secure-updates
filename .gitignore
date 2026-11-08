@@ -1,0 +1,15 @@
+# Claves de TUF: NUNCA se suben al repositorio (regla 4 del plan)
+keys/
+
+# Worktree local de gh-pages que se sirve durante las demos
+mirror/
+
+# Salidas crudas de las corridas
+results/raw/
+
+# Python
+__pycache__/
+
+# Entorno virtual local y salida de build/package.py (ver results/NOTAS.md)
+.venv/
+dist/
