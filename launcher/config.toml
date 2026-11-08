@@ -1,0 +1,10 @@
+# Configuración del launcher.
+
+# 127.0.0.1 en lugar de localhost: en Windows, "localhost" intenta primero IPv6 (::1)
+# y eso puede sumar segundos a cada descarga y distorsionar los tiempos medidos.
+server_url = "http://127.0.0.1:8000"
+
+[baseline]
+path = "baseline"
+
+# El canal seguro y las rutas de cosign y slsa-verifier se agregan en la Fase 5.
