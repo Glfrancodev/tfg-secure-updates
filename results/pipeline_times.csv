@@ -1,0 +1,471 @@
+run_id,attempt,workflow,tag,job,step,seconds
+42513482655,1,publish-baseline,v1.1.2,publish,(job),10.0
+42513482655,1,publish-baseline,v1.1.2,publish,Set up job,0.0
+42513482655,1,publish-baseline,v1.1.2,publish,Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1,1.0
+42513482655,1,publish-baseline,v1.1.2,publish,Run ./.github/actions/build-game,7.0
+42513482655,1,publish-baseline,v1.1.2,publish,Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1,1.0
+42513482655,1,publish-baseline,v1.1.2,publish,Publicar en gh-pages/baseline,1.0
+42513482655,1,publish-baseline,v1.1.2,publish,Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1,0.0
+42513482655,1,publish-baseline,v1.1.2,publish,Post Run ./.github/actions/build-game,0.0
+42513482655,1,publish-baseline,v1.1.2,publish,Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1,0.0
+42513482655,1,publish-baseline,v1.1.2,publish,Complete job,0.0
+42513482655,2,publish-baseline,v1.1.2,publish,(job),14.0
+42513482655,2,publish-baseline,v1.1.2,publish,Set up job,0.0
+42513482655,2,publish-baseline,v1.1.2,publish,Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1,2.0
+42513482655,2,publish-baseline,v1.1.2,publish,Run ./.github/actions/build-game,10.0
+42513482655,2,publish-baseline,v1.1.2,publish,Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1,1.0
+42513482655,2,publish-baseline,v1.1.2,publish,Publicar en gh-pages/baseline,0.0
+42513482655,2,publish-baseline,v1.1.2,publish,Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1,0.0
+42513482655,2,publish-baseline,v1.1.2,publish,Post Run ./.github/actions/build-game,0.0
+42513482655,2,publish-baseline,v1.1.2,publish,Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1,1.0
+42513482655,2,publish-baseline,v1.1.2,publish,Complete job,0.0
+42513482655,3,publish-baseline,v1.1.2,publish,(job),14.0
+42513482655,3,publish-baseline,v1.1.2,publish,Set up job,0.0
+42513482655,3,publish-baseline,v1.1.2,publish,Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1,2.0
+42513482655,3,publish-baseline,v1.1.2,publish,Run ./.github/actions/build-game,10.0
+42513482655,3,publish-baseline,v1.1.2,publish,Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1,1.0
+42513482655,3,publish-baseline,v1.1.2,publish,Publicar en gh-pages/baseline,0.0
+42513482655,3,publish-baseline,v1.1.2,publish,Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1,0.0
+42513482655,3,publish-baseline,v1.1.2,publish,Post Run ./.github/actions/build-game,1.0
+42513482655,3,publish-baseline,v1.1.2,publish,Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1,0.0
+42513482655,3,publish-baseline,v1.1.2,publish,Complete job,0.0
+42513482655,4,publish-baseline,v1.1.2,publish,(job),16.0
+42513482655,4,publish-baseline,v1.1.2,publish,Set up job,0.0
+42513482655,4,publish-baseline,v1.1.2,publish,Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1,2.0
+42513482655,4,publish-baseline,v1.1.2,publish,Run ./.github/actions/build-game,13.0
+42513482655,4,publish-baseline,v1.1.2,publish,Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1,1.0
+42513482655,4,publish-baseline,v1.1.2,publish,Publicar en gh-pages/baseline,0.0
+42513482655,4,publish-baseline,v1.1.2,publish,Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1,0.0
+42513482655,4,publish-baseline,v1.1.2,publish,Post Run ./.github/actions/build-game,0.0
+42513482655,4,publish-baseline,v1.1.2,publish,Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1,0.0
+42513482655,4,publish-baseline,v1.1.2,publish,Complete job,0.0
+42513482655,5,publish-baseline,v1.1.2,publish,(job),15.0
+42513482655,5,publish-baseline,v1.1.2,publish,Set up job,1.0
+42513482655,5,publish-baseline,v1.1.2,publish,Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1,1.0
+42513482655,5,publish-baseline,v1.1.2,publish,Run ./.github/actions/build-game,11.0
+42513482655,5,publish-baseline,v1.1.2,publish,Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1,1.0
+42513482655,5,publish-baseline,v1.1.2,publish,Publicar en gh-pages/baseline,0.0
+42513482655,5,publish-baseline,v1.1.2,publish,Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1,1.0
+42513482655,5,publish-baseline,v1.1.2,publish,Post Run ./.github/actions/build-game,0.0
+42513482655,5,publish-baseline,v1.1.2,publish,Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1,0.0
+42513482655,5,publish-baseline,v1.1.2,publish,Complete job,0.0
+42513482976,1,publish-secure,v1.1.2,build,(job),13.0
+42513482976,1,publish-secure,v1.1.2,build,Set up job,1.0
+42513482976,1,publish-secure,v1.1.2,build,Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1,1.0
+42513482976,1,publish-secure,v1.1.2,build,Versión (el tag debe coincidir con game/VERSION),0.0
+42513482976,1,publish-secure,v1.1.2,build,Run ./.github/actions/build-game,9.0
+42513482976,1,publish-secure,v1.1.2,build,Hash para el generador SLSA,0.0
+42513482976,1,publish-secure,v1.1.2,build,Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9,1.0
+42513482976,1,publish-secure,v1.1.2,build,Post Run ./.github/actions/build-game,1.0
+42513482976,1,publish-secure,v1.1.2,build,Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1,0.0
+42513482976,1,publish-secure,v1.1.2,build,Complete job,0.0
+42513482976,1,publish-secure,v1.1.2,gates,(job),68.0
+42513482976,1,publish-secure,v1.1.2,gates,Set up job,1.0
+42513482976,1,publish-secure,v1.1.2,gates,Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1,1.0
+42513482976,1,publish-secure,v1.1.2,gates,Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333,1.0
+42513482976,1,publish-secure,v1.1.2,gates,Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0,8.0
+42513482976,1,publish-secure,v1.1.2,gates,Instalar Semgrep y YARA,27.0
+42513482976,1,publish-secure,v1.1.2,gates,Extraer el artefacto,0.0
+42513482976,1,publish-secure,v1.1.2,gates,Gate: Semgrep,1.0
+42513482976,1,publish-secure,v1.1.2,gates,ClamAV: descargar la imagen oficial con firmas,11.0
+42513482976,1,publish-secure,v1.1.2,gates,ClamAV: autoprueba EICAR,8.0
+42513482976,1,publish-secure,v1.1.2,gates,Gate: ClamAV,8.0
+42513482976,1,publish-secure,v1.1.2,gates,Gate: YARA,0.0
+42513482976,1,publish-secure,v1.1.2,gates,Gate: fuente vs artefacto,0.0
+42513482976,1,publish-secure,v1.1.2,gates,Diff de versiones (informativo),1.0
+42513482976,1,publish-secure,v1.1.2,gates,Decisión de los gates,0.0
+42513482976,1,publish-secure,v1.1.2,gates,Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9,1.0
+42513482976,1,publish-secure,v1.1.2,gates,Post Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0,0.0
+42513482976,1,publish-secure,v1.1.2,gates,Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1,0.0
+42513482976,1,publish-secure,v1.1.2,gates,Complete job,0.0
+42513482976,1,publish-secure,v1.1.2,sign,(job),6.0
+42513482976,1,publish-secure,v1.1.2,sign,Set up job,1.0
+42513482976,1,publish-secure,v1.1.2,sign,Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333,2.0
+42513482976,1,publish-secure,v1.1.2,sign,Run sigstore/cosign-installer@756fe2d284c7292c4e9b62c8a28f1e5629c59532,0.0
+42513482976,1,publish-secure,v1.1.2,sign,Firmar con cosign (Fulcio + Rekor),2.0
+42513482976,1,publish-secure,v1.1.2,sign,Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9,1.0
+42513482976,1,publish-secure,v1.1.2,sign,Complete job,0.0
+42513482976,1,publish-secure,v1.1.2,provenance / detect-env,(job),3.0
+42513482976,1,publish-secure,v1.1.2,provenance / detect-env,Set up job,2.0
+42513482976,1,publish-secure,v1.1.2,provenance / detect-env,Detect the generator ref,1.0
+42513482976,1,publish-secure,v1.1.2,provenance / detect-env,Final outcome,0.0
+42513482976,1,publish-secure,v1.1.2,provenance / detect-env,Complete job,0.0
+42513482976,1,publish-secure,v1.1.2,provenance / generator,(job),23.0
+42513482976,1,publish-secure,v1.1.2,provenance / generator,Set up job,4.0
+42513482976,1,publish-secure,v1.1.2,provenance / generator,Generate builder,15.0
+42513482976,1,publish-secure,v1.1.2,provenance / generator,Extract subjects file metadata,0.0
+42513482976,1,publish-secure,v1.1.2,provenance / generator,Download subjects file,0.0
+42513482976,1,publish-secure,v1.1.2,provenance / generator,Create subject file,0.0
+42513482976,1,publish-secure,v1.1.2,provenance / generator,Create and sign provenance,2.0
+42513482976,1,publish-secure,v1.1.2,provenance / generator,Upload the signed provenance,1.0
+42513482976,1,publish-secure,v1.1.2,provenance / generator,Final outcome,0.0
+42513482976,1,publish-secure,v1.1.2,provenance / generator,Post Generate builder,1.0
+42513482976,1,publish-secure,v1.1.2,provenance / generator,Complete job,0.0
+42513482976,1,publish-secure,v1.1.2,provenance / final,(job),0.0
+42513482976,1,publish-secure,v1.1.2,provenance / final,Set up job,0.0
+42513482976,1,publish-secure,v1.1.2,provenance / final,Final outcome,0.0
+42513482976,1,publish-secure,v1.1.2,provenance / final,Complete job,0.0
+42513482976,1,publish-secure,v1.1.2,tuf-stage,(job),23.0
+42513482976,1,publish-secure,v1.1.2,tuf-stage,Set up job,1.0
+42513482976,1,publish-secure,v1.1.2,tuf-stage,Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1,2.0
+42513482976,1,publish-secure,v1.1.2,tuf-stage,Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0,10.0
+42513482976,1,publish-secure,v1.1.2,tuf-stage,Instalar python-tuf,2.0
+42513482976,1,publish-secure,v1.1.2,tuf-stage,Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1,2.0
+42513482976,1,publish-secure,v1.1.2,tuf-stage,Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333,1.0
+42513482976,1,publish-secure,v1.1.2,tuf-stage,Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333,1.0
+42513482976,1,publish-secure,v1.1.2,tuf-stage,Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333,1.0
+42513482976,1,publish-secure,v1.1.2,tuf-stage,Agregar los targets y firmar targets (clave targets-ci),1.0
+42513482976,1,publish-secure,v1.1.2,tuf-stage,Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9,1.0
+42513482976,1,publish-secure,v1.1.2,tuf-stage,Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1,0.0
+42513482976,1,publish-secure,v1.1.2,tuf-stage,Post Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0,0.0
+42513482976,1,publish-secure,v1.1.2,tuf-stage,Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1,0.0
+42513482976,1,publish-secure,v1.1.2,tuf-stage,Complete job,0.0
+42513482976,1,publish-secure,v1.1.2,release,(job),19.0
+42513482976,1,publish-secure,v1.1.2,release,Set up job,1.0
+42513482976,1,publish-secure,v1.1.2,release,Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1,2.0
+42513482976,1,publish-secure,v1.1.2,release,Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0,9.0
+42513482976,1,publish-secure,v1.1.2,release,Instalar python-tuf,3.0
+42513482976,1,publish-secure,v1.1.2,release,Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1,1.0
+42513482976,1,publish-secure,v1.1.2,release,Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333,1.0
+42513482976,1,publish-secure,v1.1.2,release,Segunda firma de targets (targets-dev) y snapshot/timestamp (online),0.0
+42513482976,1,publish-secure,v1.1.2,release,Publicar en gh-pages/secure,1.0
+42513482976,1,publish-secure,v1.1.2,release,Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1,1.0
+42513482976,1,publish-secure,v1.1.2,release,Post Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0,0.0
+42513482976,1,publish-secure,v1.1.2,release,Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1,0.0
+42513482976,1,publish-secure,v1.1.2,release,Complete job,0.0
+42513482976,2,publish-secure,v1.1.2,build,(job),14.0
+42513482976,2,publish-secure,v1.1.2,build,Set up job,1.0
+42513482976,2,publish-secure,v1.1.2,build,Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1,2.0
+42513482976,2,publish-secure,v1.1.2,build,Versión (el tag debe coincidir con game/VERSION),0.0
+42513482976,2,publish-secure,v1.1.2,build,Run ./.github/actions/build-game,9.0
+42513482976,2,publish-secure,v1.1.2,build,Hash para el generador SLSA,0.0
+42513482976,2,publish-secure,v1.1.2,build,Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9,1.0
+42513482976,2,publish-secure,v1.1.2,build,Post Run ./.github/actions/build-game,1.0
+42513482976,2,publish-secure,v1.1.2,build,Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1,0.0
+42513482976,2,publish-secure,v1.1.2,build,Complete job,0.0
+42513482976,2,publish-secure,v1.1.2,gates,(job),80.0
+42513482976,2,publish-secure,v1.1.2,gates,Set up job,3.0
+42513482976,2,publish-secure,v1.1.2,gates,Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1,1.0
+42513482976,2,publish-secure,v1.1.2,gates,Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333,1.0
+42513482976,2,publish-secure,v1.1.2,gates,Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0,9.0
+42513482976,2,publish-secure,v1.1.2,gates,Instalar Semgrep y YARA,34.0
+42513482976,2,publish-secure,v1.1.2,gates,Extraer el artefacto,1.0
+42513482976,2,publish-secure,v1.1.2,gates,Gate: Semgrep,1.0
+42513482976,2,publish-secure,v1.1.2,gates,ClamAV: descargar la imagen oficial con firmas,12.0
+42513482976,2,publish-secure,v1.1.2,gates,ClamAV: autoprueba EICAR,8.0
+42513482976,2,publish-secure,v1.1.2,gates,Gate: ClamAV,8.0
+42513482976,2,publish-secure,v1.1.2,gates,Gate: YARA,0.0
+42513482976,2,publish-secure,v1.1.2,gates,Gate: fuente vs artefacto,0.0
+42513482976,2,publish-secure,v1.1.2,gates,Diff de versiones (informativo),0.0
+42513482976,2,publish-secure,v1.1.2,gates,Decisión de los gates,0.0
+42513482976,2,publish-secure,v1.1.2,gates,Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9,1.0
+42513482976,2,publish-secure,v1.1.2,gates,Post Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0,0.0
+42513482976,2,publish-secure,v1.1.2,gates,Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1,1.0
+42513482976,2,publish-secure,v1.1.2,gates,Complete job,0.0
+42513482976,2,publish-secure,v1.1.2,sign,(job),6.0
+42513482976,2,publish-secure,v1.1.2,sign,Set up job,1.0
+42513482976,2,publish-secure,v1.1.2,sign,Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333,2.0
+42513482976,2,publish-secure,v1.1.2,sign,Run sigstore/cosign-installer@756fe2d284c7292c4e9b62c8a28f1e5629c59532,0.0
+42513482976,2,publish-secure,v1.1.2,sign,Firmar con cosign (Fulcio + Rekor),2.0
+42513482976,2,publish-secure,v1.1.2,sign,Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9,1.0
+42513482976,2,publish-secure,v1.1.2,sign,Complete job,0.0
+42513482976,2,publish-secure,v1.1.2,provenance / detect-env,(job),1.0
+42513482976,2,publish-secure,v1.1.2,provenance / detect-env,Set up job,1.0
+42513482976,2,publish-secure,v1.1.2,provenance / detect-env,Detect the generator ref,0.0
+42513482976,2,publish-secure,v1.1.2,provenance / detect-env,Final outcome,0.0
+42513482976,2,publish-secure,v1.1.2,provenance / detect-env,Complete job,0.0
+42513482976,2,publish-secure,v1.1.2,provenance / generator,(job),18.0
+42513482976,2,publish-secure,v1.1.2,provenance / generator,Set up job,2.0
+42513482976,2,publish-secure,v1.1.2,provenance / generator,Generate builder,13.0
+42513482976,2,publish-secure,v1.1.2,provenance / generator,Extract subjects file metadata,0.0
+42513482976,2,publish-secure,v1.1.2,provenance / generator,Download subjects file,0.0
+42513482976,2,publish-secure,v1.1.2,provenance / generator,Create subject file,0.0
+42513482976,2,publish-secure,v1.1.2,provenance / generator,Create and sign provenance,1.0
+42513482976,2,publish-secure,v1.1.2,provenance / generator,Upload the signed provenance,1.0
+42513482976,2,publish-secure,v1.1.2,provenance / generator,Final outcome,0.0
+42513482976,2,publish-secure,v1.1.2,provenance / generator,Post Generate builder,0.0
+42513482976,2,publish-secure,v1.1.2,provenance / generator,Complete job,1.0
+42513482976,2,publish-secure,v1.1.2,provenance / final,(job),0.0
+42513482976,2,publish-secure,v1.1.2,provenance / final,Set up job,0.0
+42513482976,2,publish-secure,v1.1.2,provenance / final,Final outcome,0.0
+42513482976,2,publish-secure,v1.1.2,provenance / final,Complete job,0.0
+42513482976,2,publish-secure,v1.1.2,tuf-stage,(job),19.0
+42513482976,2,publish-secure,v1.1.2,tuf-stage,Set up job,2.0
+42513482976,2,publish-secure,v1.1.2,tuf-stage,Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1,1.0
+42513482976,2,publish-secure,v1.1.2,tuf-stage,Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0,8.0
+42513482976,2,publish-secure,v1.1.2,tuf-stage,Instalar python-tuf,4.0
+42513482976,2,publish-secure,v1.1.2,tuf-stage,Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1,1.0
+42513482976,2,publish-secure,v1.1.2,tuf-stage,Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333,0.0
+42513482976,2,publish-secure,v1.1.2,tuf-stage,Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333,0.0
+42513482976,2,publish-secure,v1.1.2,tuf-stage,Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333,1.0
+42513482976,2,publish-secure,v1.1.2,tuf-stage,Agregar los targets y firmar targets (clave targets-ci),0.0
+42513482976,2,publish-secure,v1.1.2,tuf-stage,Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9,1.0
+42513482976,2,publish-secure,v1.1.2,tuf-stage,Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1,0.0
+42513482976,2,publish-secure,v1.1.2,tuf-stage,Post Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0,0.0
+42513482976,2,publish-secure,v1.1.2,tuf-stage,Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1,1.0
+42513482976,2,publish-secure,v1.1.2,tuf-stage,Complete job,0.0
+42513482976,2,publish-secure,v1.1.2,release,(job),19.0
+42513482976,2,publish-secure,v1.1.2,release,Set up job,1.0
+42513482976,2,publish-secure,v1.1.2,release,Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1,1.0
+42513482976,2,publish-secure,v1.1.2,release,Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0,10.0
+42513482976,2,publish-secure,v1.1.2,release,Instalar python-tuf,3.0
+42513482976,2,publish-secure,v1.1.2,release,Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1,1.0
+42513482976,2,publish-secure,v1.1.2,release,Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333,1.0
+42513482976,2,publish-secure,v1.1.2,release,Segunda firma de targets (targets-dev) y snapshot/timestamp (online),0.0
+42513482976,2,publish-secure,v1.1.2,release,Publicar en gh-pages/secure,1.0
+42513482976,2,publish-secure,v1.1.2,release,Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1,1.0
+42513482976,2,publish-secure,v1.1.2,release,Post Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0,0.0
+42513482976,2,publish-secure,v1.1.2,release,Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1,0.0
+42513482976,2,publish-secure,v1.1.2,release,Complete job,0.0
+42513482976,3,publish-secure,v1.1.2,build,(job),12.0
+42513482976,3,publish-secure,v1.1.2,build,Set up job,1.0
+42513482976,3,publish-secure,v1.1.2,build,Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1,1.0
+42513482976,3,publish-secure,v1.1.2,build,Versión (el tag debe coincidir con game/VERSION),0.0
+42513482976,3,publish-secure,v1.1.2,build,Run ./.github/actions/build-game,9.0
+42513482976,3,publish-secure,v1.1.2,build,Hash para el generador SLSA,0.0
+42513482976,3,publish-secure,v1.1.2,build,Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9,1.0
+42513482976,3,publish-secure,v1.1.2,build,Post Run ./.github/actions/build-game,0.0
+42513482976,3,publish-secure,v1.1.2,build,Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1,0.0
+42513482976,3,publish-secure,v1.1.2,build,Complete job,0.0
+42513482976,3,publish-secure,v1.1.2,gates,(job),71.0
+42513482976,3,publish-secure,v1.1.2,gates,Set up job,1.0
+42513482976,3,publish-secure,v1.1.2,gates,Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1,1.0
+42513482976,3,publish-secure,v1.1.2,gates,Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333,1.0
+42513482976,3,publish-secure,v1.1.2,gates,Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0,9.0
+42513482976,3,publish-secure,v1.1.2,gates,Instalar Semgrep y YARA,33.0
+42513482976,3,publish-secure,v1.1.2,gates,Extraer el artefacto,0.0
+42513482976,3,publish-secure,v1.1.2,gates,Gate: Semgrep,2.0
+42513482976,3,publish-secure,v1.1.2,gates,ClamAV: descargar la imagen oficial con firmas,5.0
+42513482976,3,publish-secure,v1.1.2,gates,ClamAV: autoprueba EICAR,8.0
+42513482976,3,publish-secure,v1.1.2,gates,Gate: ClamAV,9.0
+42513482976,3,publish-secure,v1.1.2,gates,Gate: YARA,0.0
+42513482976,3,publish-secure,v1.1.2,gates,Gate: fuente vs artefacto,0.0
+42513482976,3,publish-secure,v1.1.2,gates,Diff de versiones (informativo),0.0
+42513482976,3,publish-secure,v1.1.2,gates,Decisión de los gates,0.0
+42513482976,3,publish-secure,v1.1.2,gates,Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9,1.0
+42513482976,3,publish-secure,v1.1.2,gates,Post Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0,0.0
+42513482976,3,publish-secure,v1.1.2,gates,Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1,1.0
+42513482976,3,publish-secure,v1.1.2,gates,Complete job,0.0
+42513482976,3,publish-secure,v1.1.2,sign,(job),6.0
+42513482976,3,publish-secure,v1.1.2,sign,Set up job,1.0
+42513482976,3,publish-secure,v1.1.2,sign,Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333,1.0
+42513482976,3,publish-secure,v1.1.2,sign,Run sigstore/cosign-installer@756fe2d284c7292c4e9b62c8a28f1e5629c59532,2.0
+42513482976,3,publish-secure,v1.1.2,sign,Firmar con cosign (Fulcio + Rekor),1.0
+42513482976,3,publish-secure,v1.1.2,sign,Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9,1.0
+42513482976,3,publish-secure,v1.1.2,sign,Complete job,0.0
+42513482976,3,publish-secure,v1.1.2,provenance / detect-env,(job),2.0
+42513482976,3,publish-secure,v1.1.2,provenance / detect-env,Set up job,1.0
+42513482976,3,publish-secure,v1.1.2,provenance / detect-env,Detect the generator ref,0.0
+42513482976,3,publish-secure,v1.1.2,provenance / detect-env,Final outcome,1.0
+42513482976,3,publish-secure,v1.1.2,provenance / detect-env,Complete job,0.0
+42513482976,3,publish-secure,v1.1.2,provenance / generator,(job),18.0
+42513482976,3,publish-secure,v1.1.2,provenance / generator,Set up job,3.0
+42513482976,3,publish-secure,v1.1.2,provenance / generator,Generate builder,11.0
+42513482976,3,publish-secure,v1.1.2,provenance / generator,Extract subjects file metadata,0.0
+42513482976,3,publish-secure,v1.1.2,provenance / generator,Download subjects file,0.0
+42513482976,3,publish-secure,v1.1.2,provenance / generator,Create subject file,1.0
+42513482976,3,publish-secure,v1.1.2,provenance / generator,Create and sign provenance,2.0
+42513482976,3,publish-secure,v1.1.2,provenance / generator,Upload the signed provenance,1.0
+42513482976,3,publish-secure,v1.1.2,provenance / generator,Final outcome,0.0
+42513482976,3,publish-secure,v1.1.2,provenance / generator,Post Generate builder,0.0
+42513482976,3,publish-secure,v1.1.2,provenance / generator,Complete job,0.0
+42513482976,3,publish-secure,v1.1.2,provenance / final,(job),0.0
+42513482976,3,publish-secure,v1.1.2,provenance / final,Set up job,0.0
+42513482976,3,publish-secure,v1.1.2,provenance / final,Final outcome,0.0
+42513482976,3,publish-secure,v1.1.2,provenance / final,Complete job,0.0
+42513482976,3,publish-secure,v1.1.2,tuf-stage,(job),21.0
+42513482976,3,publish-secure,v1.1.2,tuf-stage,Set up job,2.0
+42513482976,3,publish-secure,v1.1.2,tuf-stage,Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1,1.0
+42513482976,3,publish-secure,v1.1.2,tuf-stage,Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0,9.0
+42513482976,3,publish-secure,v1.1.2,tuf-stage,Instalar python-tuf,2.0
+42513482976,3,publish-secure,v1.1.2,tuf-stage,Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1,2.0
+42513482976,3,publish-secure,v1.1.2,tuf-stage,Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333,1.0
+42513482976,3,publish-secure,v1.1.2,tuf-stage,Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333,1.0
+42513482976,3,publish-secure,v1.1.2,tuf-stage,Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333,1.0
+42513482976,3,publish-secure,v1.1.2,tuf-stage,Agregar los targets y firmar targets (clave targets-ci),0.0
+42513482976,3,publish-secure,v1.1.2,tuf-stage,Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9,2.0
+42513482976,3,publish-secure,v1.1.2,tuf-stage,Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1,0.0
+42513482976,3,publish-secure,v1.1.2,tuf-stage,Post Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0,0.0
+42513482976,3,publish-secure,v1.1.2,tuf-stage,Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1,0.0
+42513482976,3,publish-secure,v1.1.2,tuf-stage,Complete job,0.0
+42513482976,3,publish-secure,v1.1.2,release,(job),21.0
+42513482976,3,publish-secure,v1.1.2,release,Set up job,1.0
+42513482976,3,publish-secure,v1.1.2,release,Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1,3.0
+42513482976,3,publish-secure,v1.1.2,release,Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0,10.0
+42513482976,3,publish-secure,v1.1.2,release,Instalar python-tuf,2.0
+42513482976,3,publish-secure,v1.1.2,release,Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1,1.0
+42513482976,3,publish-secure,v1.1.2,release,Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333,2.0
+42513482976,3,publish-secure,v1.1.2,release,Segunda firma de targets (targets-dev) y snapshot/timestamp (online),0.0
+42513482976,3,publish-secure,v1.1.2,release,Publicar en gh-pages/secure,1.0
+42513482976,3,publish-secure,v1.1.2,release,Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1,1.0
+42513482976,3,publish-secure,v1.1.2,release,Post Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0,0.0
+42513482976,3,publish-secure,v1.1.2,release,Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1,0.0
+42513482976,3,publish-secure,v1.1.2,release,Complete job,0.0
+42513482976,4,publish-secure,v1.1.2,build,(job),12.0
+42513482976,4,publish-secure,v1.1.2,build,Set up job,1.0
+42513482976,4,publish-secure,v1.1.2,build,Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1,1.0
+42513482976,4,publish-secure,v1.1.2,build,Versión (el tag debe coincidir con game/VERSION),0.0
+42513482976,4,publish-secure,v1.1.2,build,Run ./.github/actions/build-game,9.0
+42513482976,4,publish-secure,v1.1.2,build,Hash para el generador SLSA,0.0
+42513482976,4,publish-secure,v1.1.2,build,Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9,1.0
+42513482976,4,publish-secure,v1.1.2,build,Post Run ./.github/actions/build-game,0.0
+42513482976,4,publish-secure,v1.1.2,build,Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1,0.0
+42513482976,4,publish-secure,v1.1.2,build,Complete job,0.0
+42513482976,4,publish-secure,v1.1.2,gates,(job),64.0
+42513482976,4,publish-secure,v1.1.2,gates,Set up job,2.0
+42513482976,4,publish-secure,v1.1.2,gates,Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1,1.0
+42513482976,4,publish-secure,v1.1.2,gates,Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333,1.0
+42513482976,4,publish-secure,v1.1.2,gates,Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0,8.0
+42513482976,4,publish-secure,v1.1.2,gates,Instalar Semgrep y YARA,22.0
+42513482976,4,publish-secure,v1.1.2,gates,Extraer el artefacto,0.0
+42513482976,4,publish-secure,v1.1.2,gates,Gate: Semgrep,2.0
+42513482976,4,publish-secure,v1.1.2,gates,ClamAV: descargar la imagen oficial con firmas,11.0
+42513482976,4,publish-secure,v1.1.2,gates,ClamAV: autoprueba EICAR,7.0
+42513482976,4,publish-secure,v1.1.2,gates,Gate: ClamAV,8.0
+42513482976,4,publish-secure,v1.1.2,gates,Gate: YARA,0.0
+42513482976,4,publish-secure,v1.1.2,gates,Gate: fuente vs artefacto,0.0
+42513482976,4,publish-secure,v1.1.2,gates,Diff de versiones (informativo),0.0
+42513482976,4,publish-secure,v1.1.2,gates,Decisión de los gates,0.0
+42513482976,4,publish-secure,v1.1.2,gates,Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9,2.0
+42513482976,4,publish-secure,v1.1.2,gates,Post Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0,0.0
+42513482976,4,publish-secure,v1.1.2,gates,Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1,0.0
+42513482976,4,publish-secure,v1.1.2,gates,Complete job,0.0
+42513482976,4,publish-secure,v1.1.2,provenance / detect-env,(job),1.0
+42513482976,4,publish-secure,v1.1.2,provenance / detect-env,Set up job,1.0
+42513482976,4,publish-secure,v1.1.2,provenance / detect-env,Detect the generator ref,0.0
+42513482976,4,publish-secure,v1.1.2,provenance / detect-env,Final outcome,0.0
+42513482976,4,publish-secure,v1.1.2,provenance / detect-env,Complete job,0.0
+42513482976,4,publish-secure,v1.1.2,sign,(job),6.0
+42513482976,4,publish-secure,v1.1.2,sign,Set up job,1.0
+42513482976,4,publish-secure,v1.1.2,sign,Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333,1.0
+42513482976,4,publish-secure,v1.1.2,sign,Run sigstore/cosign-installer@756fe2d284c7292c4e9b62c8a28f1e5629c59532,1.0
+42513482976,4,publish-secure,v1.1.2,sign,Firmar con cosign (Fulcio + Rekor),1.0
+42513482976,4,publish-secure,v1.1.2,sign,Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9,2.0
+42513482976,4,publish-secure,v1.1.2,sign,Complete job,0.0
+42513482976,4,publish-secure,v1.1.2,provenance / generator,(job),17.0
+42513482976,4,publish-secure,v1.1.2,provenance / generator,Set up job,2.0
+42513482976,4,publish-secure,v1.1.2,provenance / generator,Generate builder,12.0
+42513482976,4,publish-secure,v1.1.2,provenance / generator,Extract subjects file metadata,0.0
+42513482976,4,publish-secure,v1.1.2,provenance / generator,Download subjects file,0.0
+42513482976,4,publish-secure,v1.1.2,provenance / generator,Create subject file,0.0
+42513482976,4,publish-secure,v1.1.2,provenance / generator,Create and sign provenance,2.0
+42513482976,4,publish-secure,v1.1.2,provenance / generator,Upload the signed provenance,1.0
+42513482976,4,publish-secure,v1.1.2,provenance / generator,Final outcome,0.0
+42513482976,4,publish-secure,v1.1.2,provenance / generator,Post Generate builder,0.0
+42513482976,4,publish-secure,v1.1.2,provenance / generator,Complete job,0.0
+42513482976,4,publish-secure,v1.1.2,provenance / final,(job),1.0
+42513482976,4,publish-secure,v1.1.2,provenance / final,Set up job,0.0
+42513482976,4,publish-secure,v1.1.2,provenance / final,Final outcome,1.0
+42513482976,4,publish-secure,v1.1.2,provenance / final,Complete job,0.0
+42513482976,4,publish-secure,v1.1.2,tuf-stage,(job),21.0
+42513482976,4,publish-secure,v1.1.2,tuf-stage,Set up job,1.0
+42513482976,4,publish-secure,v1.1.2,tuf-stage,Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1,1.0
+42513482976,4,publish-secure,v1.1.2,tuf-stage,Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0,10.0
+42513482976,4,publish-secure,v1.1.2,tuf-stage,Instalar python-tuf,2.0
+42513482976,4,publish-secure,v1.1.2,tuf-stage,Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1,1.0
+42513482976,4,publish-secure,v1.1.2,tuf-stage,Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333,2.0
+42513482976,4,publish-secure,v1.1.2,tuf-stage,Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333,1.0
+42513482976,4,publish-secure,v1.1.2,tuf-stage,Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333,1.0
+42513482976,4,publish-secure,v1.1.2,tuf-stage,Agregar los targets y firmar targets (clave targets-ci),0.0
+42513482976,4,publish-secure,v1.1.2,tuf-stage,Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9,2.0
+42513482976,4,publish-secure,v1.1.2,tuf-stage,Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1,0.0
+42513482976,4,publish-secure,v1.1.2,tuf-stage,Post Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0,0.0
+42513482976,4,publish-secure,v1.1.2,tuf-stage,Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1,0.0
+42513482976,4,publish-secure,v1.1.2,tuf-stage,Complete job,0.0
+42513482976,4,publish-secure,v1.1.2,release,(job),15.0
+42513482976,4,publish-secure,v1.1.2,release,Set up job,0.0
+42513482976,4,publish-secure,v1.1.2,release,Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1,1.0
+42513482976,4,publish-secure,v1.1.2,release,Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0,8.0
+42513482976,4,publish-secure,v1.1.2,release,Instalar python-tuf,3.0
+42513482976,4,publish-secure,v1.1.2,release,Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1,1.0
+42513482976,4,publish-secure,v1.1.2,release,Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333,0.0
+42513482976,4,publish-secure,v1.1.2,release,Segunda firma de targets (targets-dev) y snapshot/timestamp (online),0.0
+42513482976,4,publish-secure,v1.1.2,release,Publicar en gh-pages/secure,1.0
+42513482976,4,publish-secure,v1.1.2,release,Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1,1.0
+42513482976,4,publish-secure,v1.1.2,release,Post Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0,0.0
+42513482976,4,publish-secure,v1.1.2,release,Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1,0.0
+42513482976,4,publish-secure,v1.1.2,release,Complete job,0.0
+42513482976,5,publish-secure,v1.1.2,build,(job),13.0
+42513482976,5,publish-secure,v1.1.2,build,Set up job,0.0
+42513482976,5,publish-secure,v1.1.2,build,Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1,2.0
+42513482976,5,publish-secure,v1.1.2,build,Versión (el tag debe coincidir con game/VERSION),0.0
+42513482976,5,publish-secure,v1.1.2,build,Run ./.github/actions/build-game,9.0
+42513482976,5,publish-secure,v1.1.2,build,Hash para el generador SLSA,0.0
+42513482976,5,publish-secure,v1.1.2,build,Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9,2.0
+42513482976,5,publish-secure,v1.1.2,build,Post Run ./.github/actions/build-game,0.0
+42513482976,5,publish-secure,v1.1.2,build,Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1,0.0
+42513482976,5,publish-secure,v1.1.2,build,Complete job,0.0
+42513482976,5,publish-secure,v1.1.2,gates,(job),62.0
+42513482976,5,publish-secure,v1.1.2,gates,Set up job,2.0
+42513482976,5,publish-secure,v1.1.2,gates,Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1,1.0
+42513482976,5,publish-secure,v1.1.2,gates,Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333,1.0
+42513482976,5,publish-secure,v1.1.2,gates,Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0,8.0
+42513482976,5,publish-secure,v1.1.2,gates,Instalar Semgrep y YARA,22.0
+42513482976,5,publish-secure,v1.1.2,gates,Extraer el artefacto,0.0
+42513482976,5,publish-secure,v1.1.2,gates,Gate: Semgrep,2.0
+42513482976,5,publish-secure,v1.1.2,gates,ClamAV: descargar la imagen oficial con firmas,7.0
+42513482976,5,publish-secure,v1.1.2,gates,ClamAV: autoprueba EICAR,9.0
+42513482976,5,publish-secure,v1.1.2,gates,Gate: ClamAV,8.0
+42513482976,5,publish-secure,v1.1.2,gates,Gate: YARA,0.0
+42513482976,5,publish-secure,v1.1.2,gates,Gate: fuente vs artefacto,0.0
+42513482976,5,publish-secure,v1.1.2,gates,Diff de versiones (informativo),1.0
+42513482976,5,publish-secure,v1.1.2,gates,Decisión de los gates,0.0
+42513482976,5,publish-secure,v1.1.2,gates,Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9,1.0
+42513482976,5,publish-secure,v1.1.2,gates,Post Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0,0.0
+42513482976,5,publish-secure,v1.1.2,gates,Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1,0.0
+42513482976,5,publish-secure,v1.1.2,gates,Complete job,0.0
+42513482976,5,publish-secure,v1.1.2,sign,(job),6.0
+42513482976,5,publish-secure,v1.1.2,sign,Set up job,1.0
+42513482976,5,publish-secure,v1.1.2,sign,Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333,1.0
+42513482976,5,publish-secure,v1.1.2,sign,Run sigstore/cosign-installer@756fe2d284c7292c4e9b62c8a28f1e5629c59532,1.0
+42513482976,5,publish-secure,v1.1.2,sign,Firmar con cosign (Fulcio + Rekor),2.0
+42513482976,5,publish-secure,v1.1.2,sign,Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9,1.0
+42513482976,5,publish-secure,v1.1.2,sign,Complete job,0.0
+42513482976,5,publish-secure,v1.1.2,provenance / detect-env,(job),3.0
+42513482976,5,publish-secure,v1.1.2,provenance / detect-env,Set up job,2.0
+42513482976,5,publish-secure,v1.1.2,provenance / detect-env,Detect the generator ref,1.0
+42513482976,5,publish-secure,v1.1.2,provenance / detect-env,Final outcome,0.0
+42513482976,5,publish-secure,v1.1.2,provenance / detect-env,Complete job,0.0
+42513482976,5,publish-secure,v1.1.2,provenance / generator,(job),21.0
+42513482976,5,publish-secure,v1.1.2,provenance / generator,Set up job,4.0
+42513482976,5,publish-secure,v1.1.2,provenance / generator,Generate builder,13.0
+42513482976,5,publish-secure,v1.1.2,provenance / generator,Extract subjects file metadata,0.0
+42513482976,5,publish-secure,v1.1.2,provenance / generator,Download subjects file,0.0
+42513482976,5,publish-secure,v1.1.2,provenance / generator,Create subject file,0.0
+42513482976,5,publish-secure,v1.1.2,provenance / generator,Create and sign provenance,2.0
+42513482976,5,publish-secure,v1.1.2,provenance / generator,Upload the signed provenance,1.0
+42513482976,5,publish-secure,v1.1.2,provenance / generator,Final outcome,1.0
+42513482976,5,publish-secure,v1.1.2,provenance / generator,Post Generate builder,0.0
+42513482976,5,publish-secure,v1.1.2,provenance / generator,Complete job,0.0
+42513482976,5,publish-secure,v1.1.2,provenance / final,(job),1.0
+42513482976,5,publish-secure,v1.1.2,provenance / final,Set up job,0.0
+42513482976,5,publish-secure,v1.1.2,provenance / final,Final outcome,1.0
+42513482976,5,publish-secure,v1.1.2,provenance / final,Complete job,0.0
+42513482976,5,publish-secure,v1.1.2,tuf-stage,(job),20.0
+42513482976,5,publish-secure,v1.1.2,tuf-stage,Set up job,2.0
+42513482976,5,publish-secure,v1.1.2,tuf-stage,Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1,1.0
+42513482976,5,publish-secure,v1.1.2,tuf-stage,Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0,8.0
+42513482976,5,publish-secure,v1.1.2,tuf-stage,Instalar python-tuf,2.0
+42513482976,5,publish-secure,v1.1.2,tuf-stage,Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1,1.0
+42513482976,5,publish-secure,v1.1.2,tuf-stage,Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333,2.0
+42513482976,5,publish-secure,v1.1.2,tuf-stage,Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333,1.0
+42513482976,5,publish-secure,v1.1.2,tuf-stage,Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333,1.0
+42513482976,5,publish-secure,v1.1.2,tuf-stage,Agregar los targets y firmar targets (clave targets-ci),0.0
+42513482976,5,publish-secure,v1.1.2,tuf-stage,Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9,1.0
+42513482976,5,publish-secure,v1.1.2,tuf-stage,Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1,0.0
+42513482976,5,publish-secure,v1.1.2,tuf-stage,Post Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0,0.0
+42513482976,5,publish-secure,v1.1.2,tuf-stage,Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1,1.0
+42513482976,5,publish-secure,v1.1.2,tuf-stage,Complete job,0.0
+42513482976,5,publish-secure,v1.1.2,release,(job),19.0
+42513482976,5,publish-secure,v1.1.2,release,Set up job,1.0
+42513482976,5,publish-secure,v1.1.2,release,Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1,2.0
+42513482976,5,publish-secure,v1.1.2,release,Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0,9.0
+42513482976,5,publish-secure,v1.1.2,release,Instalar python-tuf,3.0
+42513482976,5,publish-secure,v1.1.2,release,Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1,1.0
+42513482976,5,publish-secure,v1.1.2,release,Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333,0.0
+42513482976,5,publish-secure,v1.1.2,release,Segunda firma de targets (targets-dev) y snapshot/timestamp (online),1.0
+42513482976,5,publish-secure,v1.1.2,release,Publicar en gh-pages/secure,1.0
+42513482976,5,publish-secure,v1.1.2,release,Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1,0.0
+42513482976,5,publish-secure,v1.1.2,release,Post Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0,0.0
+42513482976,5,publish-secure,v1.1.2,release,Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1,1.0
+42513482976,5,publish-secure,v1.1.2,release,Complete job,0.0
